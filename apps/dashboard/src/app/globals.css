@@ -3985,23 +3985,15 @@
   }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 .bg-gradient-soft-purple-pink {
-        background-image: linear-gradient(
-            to top left, 
-            #7e22ce, /* Purple-700 equivalent */
-            #ec4899  /* Pink-500 equivalent */
-        );
-    }
+    background-image: linear-gradient(to top left, #7e28ca, #ff0080);
+}
+
+.bg-gradient-soft-gray-slate {
+    background-image: linear-gradient(to top left, #141727, #3a416f);
+}
+
+.after\:bg-gradient-soft-slate600-slate300::after {
+    content: var(--tw-content);
+    background-image: linear-gradient(to top left, #627594, #a8b8d8);
+}

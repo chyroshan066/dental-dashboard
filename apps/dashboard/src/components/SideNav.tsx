@@ -96,7 +96,7 @@ export const SideNav = memo(() => {
                             className="py-2.7 shadow-soft-xl text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap rounded-lg bg-white px-4 font-semibold text-slate-700 transition-colors"
                             href="./pages/dashboard.html"
                         >
-                            <div className="bg-gradient-to-tl from-purple-700 to-pink-500 shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
+                            <div className="bg-gradient-soft-purple-pink shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5">
                                 <svg width="12px" height="12px" viewBox="0 0 45 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
                                     <title>shop</title>
                                     <g stroke="none" strokeWidth="1" fill="none" fillRule="evenodd">
@@ -288,24 +288,13 @@ export const SideNav = memo(() => {
                     </li>
                 </ul>
 
-                {/* FOOTER (NEED HELP) - STICKY BOTTOM
-                   - sticky bottom-0: Keeps it pinned to the bottom.
-                   - z-20: Set high enough to be above the scrolling list items, but below the scrollbar's forced z-index (z-99 in CSS).
-                   - bg-white: Uses the main container's background color to make it opaque.
-                */}
                 <div className="sticky bottom-0 z-20 bg-gray-50">
                     <div className="mx-4 pb-4">
-                        <p className="invisible hidden text-gray-800 text-red-500 text-red-600 after:bg-gradient-to-tl after:from-gray-900 after:to-slate-800 after:from-blue-600 after:to-cyan-400 after:from-red-500 after:to-yellow-400 after:from-green-600 after:to-lime-400 after:from-red-600 after:to-rose-400 after:from-slate-600 after:to-slate-300 text-lime-500 text-cyan-500 text-slate-400 text-fuchsia-500"></p>
                         <div
-                            className="after:opacity-65 after:bg-gradient-to-tl after:from-slate-600 after:to-slate-300 relative flex min-w-0 flex-col items-center break-words rounded-2xl border-0 border-solid border-blue-900 bg-white bg-clip-border shadow-none after:absolute after:top-0 after:bottom-0 after:left-0 after:z-10 after:block after:h-full after:w-full after:rounded-2xl after:content-['']"
-                            sidenav-card="true">
-                            <div
-                                className="mb-7.5 absolute h-full w-full rounded-2xl bg-cover bg-center"
-                                style={{
-                                    backgroundImage:
-                                        "linear-gradient(310deg, rgba(20, 23, 39, 0.5) 0%, rgba(58, 65, 111, 0.5) 100%), url('/img/curved-images/curved14.jpg')"
-                                }}
-                            />
+                            className="after:opacity-65 after:bg-gradient-soft-slate600-slate300 relative flex min-w-0 flex-col items-center break-words rounded-2xl border-0 border-solid border-blue-900 bg-white bg-clip-border shadow-none after:absolute after:top-0 after:bottom-0 after:left-0 after:z-10 after:block after:h-full after:w-full after:rounded-2xl after:content-['']"
+                            sidenav-card="true"
+                        >
+                            <div className="mb-7.5 absolute h-full w-full rounded-2xl bg-cover bg-center" />
                             <div className="relative z-20 flex-auto w-full p-4 text-left text-white">
                                 <div className="flex items-center justify-center w-8 h-8 mb-4 text-center bg-white bg-center rounded-lg shadow-soft-2xl">
                                     <FontAwesomeIcon
