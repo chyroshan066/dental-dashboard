@@ -1,5 +1,4 @@
-import { faArrowRight } from "@fortawesome/free-solid-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { ReadMore } from "@/components/utility/ReadMore";
 import { memo } from "react";
 
 export const InformationCard = memo(() => (
@@ -13,29 +12,12 @@ export const InformationCard = memo(() => (
                             <div className="flex flex-col h-full">
                                 <p className="pt-2 mb-1 font-semibold">Built by developers</p>
                                 <h5 className="font-bold">Soft UI Dashboard</h5>
-                                <p className="mb-12">
-                                    From colors, cards, typography to complex elements, you
-                                    will find the full documentation.
-                                </p>
-                                <a
-                                    className="mt-auto mb-0 text-sm font-semibold leading-normal group text-slate-500"
-                                    href="#"
-                                >
-                                    Read More
-                                    <FontAwesomeIcon
-                                        icon={faArrowRight}
-                                        className="ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"
-                                    />
-                                </a>
+                                <p className="mb-12"> From colors, cards, typography to complex elements, you will find the full documentation.</p>
+                                <ReadMore color="slate-500" />
                             </div>
                         </div>
                         <div className="max-w-full px-3 mt-12 ml-auto text-center lg:mt-0 lg:w-5/12 lg:flex-none">
                             <div className="h-full bg-gradient-soft-purple-pink rounded-xl">
-                                {/* <img
-                                src="/images/waves-white.svg"
-                                className="absolute top-0 hidden w-1/2 h-full lg:block"
-                                alt="waves"
-                            /> */}
                                 <div className="relative flex items-center justify-center h-full">
                                     <img
                                         className="relative z-20 w-full pt-6"
@@ -59,23 +41,9 @@ export const InformationCard = memo(() => (
                 >
                     <span className="absolute top-0 left-0 w-full h-full bg-center bg-cover bg-gradient-soft-gray-slate opacity-80" />
                     <div className="relative z-10 flex flex-col flex-auto h-full p-4">
-                        <h5 className="pt-2 mb-6 font-bold text-white">
-                            Work with the rockets
-                        </h5>
-                        <p className="text-white">
-                            Wealth creation is an evolutionarily recent positive-sum
-                            game. It is all about who take the opportunity first.
-                        </p>
-                        <a
-                            className="mt-auto mb-0 text-sm font-semibold leading-normal text-white group"
-                            href="#"
-                        >
-                            Read More
-                            <FontAwesomeIcon
-                                icon={faArrowRight}
-                                className="ease-bounce text-sm group-hover:translate-x-1.25 ml-1 leading-normal transition-all duration-200"
-                            />
-                        </a>
+                        <h5 className="pt-2 mb-6 font-bold text-white"> Work with the rockets</h5>
+                        <p className="text-white"> Wealth creation is an evolutionarily recent positive-sum game. It is all about who take the opportunity first.</p>
+                        <ReadMore color="white" />
                     </div>
                 </div>
             </div>

@@ -48,13 +48,16 @@ interface Href {
     href: string;
 }
 
+export interface Color {
+    color?: string;
+}
+
 export interface NavLink extends Name, Href {}
 
-export interface Stat extends Title {
+export interface Stat extends Title, Color {
     value: string;
     change: string;
     iconName: IconDefinition;
-    color?: string;
 }
 
 
