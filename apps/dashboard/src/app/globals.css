@@ -4013,3 +4013,7 @@
 .bg-gradient-soft-red600-rose400 {
     background-image: linear-gradient(to top left, #ea0606, #ff667c);
 }
+
+.bg-gradient-soft-green600-lime400 {
+    background-image: linear-gradient(to top left, #17ad37, #98ec2d);
+}

@@ -26,7 +26,10 @@ export const InformationCard = memo(() => (
                                         alt="rocket"
                                         width={500}
                                         height={500}
-                                        style={{ width: '100%', height: 'auto' }}
+                                        style={{
+                                            width: '100%',
+                                            height: 'auto'
+                                        }}
                                     />
                                 </div>
                             </div>
