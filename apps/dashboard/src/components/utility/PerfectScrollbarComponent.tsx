@@ -1,9 +1,6 @@
 'use client';
 
-import { memo, useEffect, useRef } from 'react';
-// Import the base PerfectScrollbar type (which we'll partially override)
-import type PerfectScrollbar from 'perfect-scrollbar';
-// Import the value/constructor
+import { useEffect, useRef } from 'react';
 import PerfectScrollbarLib from 'perfect-scrollbar';
 import 'perfect-scrollbar/css/perfect-scrollbar.css';
 
@@ -46,7 +43,7 @@ interface PerfectScrollbarConstructor {
 }
 
 
-export const PerfectScrollbarComponent = memo(({
+export const PerfectScrollbarComponent = ({
   children,
   className = '',
   options = {},
@@ -98,6 +95,4 @@ export const PerfectScrollbarComponent = memo(({
       {children}
     </div>
   );
-});
-
-PerfectScrollbarComponent.displayName = "PerfectScrollbarComponent";
+};

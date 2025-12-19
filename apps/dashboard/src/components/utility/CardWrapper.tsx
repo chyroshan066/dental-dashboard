@@ -1,12 +1,11 @@
 import { Children } from "@/types";
-import { memo } from "react";
 
 interface CardWrapperProps extends Children {
     outerDivClassName: string;
     innerDivClassName?: string;
 }
 
-export const CardWrapper = memo(({
+export const CardWrapper = ({
     children, outerDivClassName, innerDivClassName
 }: CardWrapperProps) => (
     <div className={`w-full max-w-full px-3 lg:flex-none ${outerDivClassName}`}>
@@ -14,6 +13,4 @@ export const CardWrapper = memo(({
             {children}
         </div>
     </div>
-));
-
-CardWrapper.displayName = "CardWrapper";
+);

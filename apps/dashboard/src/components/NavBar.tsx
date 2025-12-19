@@ -1,42 +1,20 @@
 "use client";
 
+import { useDropdown } from "@/hooks/useDropdown";
 import { faBell, faClock, faCog, faSearch, faUser } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
-import { memo, useEffect, useState } from "react";
+import { memo } from "react";
 
 export const NavBar = memo(() => {
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const { toggleDropdown, isDropdownOpen, dropdownRef, triggerRef } = useDropdown();
 
     // Handle sidenav burger click
     const handleSidenavToggle = () => {
         // Dispatch custom event that SideNav will listen to
         window.dispatchEvent(new Event('toggle-sidenav'));
     };
-
-    // Handle dropdown toggle
-    const toggleDropdown = () => {
-        setIsDropdownOpen(prev => !prev);
-    };
-
-    // Close dropdown when clicking outside
-    useEffect(() => {
-        const handleClickOutside = (e: MouseEvent) => {
-            const dropdown = document.querySelector('[data-dropdown-menu]');
-            const trigger = document.querySelector('[data-dropdown-trigger]');
-
-            if (isDropdownOpen &&
-                dropdown && !dropdown.contains(e.target as Node) &&
-                trigger && !trigger.contains(e.target as Node)) {
-                setIsDropdownOpen(false);
-            }
-        };
-
-        window.addEventListener('click', handleClickOutside);
-
-        return () => window.removeEventListener('click', handleClickOutside);
-    }, [isDropdownOpen]);
 
     return (
         <nav className={`relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start`}>
@@ -114,6 +92,7 @@ export const NavBar = memo(() => {
                         <li className="relative flex items-center pr-2">
                             <p className="hidden transform-dropdown-show" />
                             <button
+                                ref={triggerRef}
                                 onClick={toggleDropdown}
                                 className="block p-0 text-sm transition-all ease-nav-brand text-slate-500 bg-transparent border-0 cursor-pointer"
                                 data-dropdown-trigger
@@ -127,6 +106,7 @@ export const NavBar = memo(() => {
                             </button>
 
                             <ul
+                                ref={dropdownRef}
                                 data-dropdown-menu
                                 className={`text-sm transform-dropdown before:font-awesome before:leading-default before:duration-350 before:ease-soft lg:shadow-soft-3xl duration-250 min-w-44 before:sm:right-7.5 before:text-5.5 absolute right-0 top-0 z-50 origin-top list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 transition-all before:absolute before:right-2 before:left-auto before:top-0 before:z-50 before:inline-block before:font-normal before:text-white before:antialiased before:transition-all before:content-['\f0d8'] sm:-mr-6 lg:absolute lg:right-0 lg:left-auto lg:mt-2 lg:block lg:cursor-pointer ${isDropdownOpen
                                     ? 'opacity-100 transform-dropdown-show'

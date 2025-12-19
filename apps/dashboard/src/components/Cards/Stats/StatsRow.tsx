@@ -1,8 +1,7 @@
-import { memo } from "react";
 import { StatCard } from "./StatCard";
 import { STATS } from "@/constants";
 
-export const StatsRow = memo(() => (
+export const StatsRow = () => (
     <div className="flex flex-wrap -mx-3">
         {STATS.map((stat, index) => (
             <StatCard
@@ -11,6 +10,4 @@ export const StatsRow = memo(() => (
             />
         ))}
     </div>
-));
-
-StatsRow.displayName = "StatsRow";
+);

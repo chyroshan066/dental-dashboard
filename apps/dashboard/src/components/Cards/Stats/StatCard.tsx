@@ -1,8 +1,7 @@
 import { Stat } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { memo } from "react";
 
-export const StatCard = memo(({
+export const StatCard = ({
     stat
 }: {
     stat: Stat
@@ -36,6 +35,4 @@ export const StatCard = memo(({
             </div>
         </div>
     )
-});
-
-StatCard.displayName = "StatCard";
+};

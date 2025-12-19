@@ -1,8 +1,7 @@
 import { ReadMore } from "@/components/utility/ReadMore";
 import Image from "next/image";
-import { memo } from "react";
 
-export const InformationCard = memo(() => (
+export const InformationCard = () => (
     <>
         {/* Card 1 */}
         <div className="w-full px-3 mb-6 lg:mb-0 lg:w-7/12 lg:flex-none">
@@ -56,6 +55,4 @@ export const InformationCard = memo(() => (
             </div>
         </div>
     </>
-));
-
-InformationCard.displayName = "InformationCard";
+);

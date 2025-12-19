@@ -1,13 +1,12 @@
 import { faArrowUp } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { memo } from "react";
 
 interface ArrowUpProps {
     percentage: string;
     timeframe: string;
 }
 
-export const ArrowUp = memo(({
+export const ArrowUp = ({
     percentage, timeframe
 }: ArrowUpProps) => (
     <p className="text-sm leading-normal">
@@ -17,6 +16,4 @@ export const ArrowUp = memo(({
         />
         <span className="font-semibold">{percentage}</span> {timeframe}
     </p>
-));
-
-ArrowUp.displayName = "ArrowUp";
+);

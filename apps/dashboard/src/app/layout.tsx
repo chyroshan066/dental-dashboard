@@ -115,7 +115,7 @@ export default function RootLayout({
         className={`${openSans.variable} m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500`}
         suppressHydrationWarning={true}
       >
-        {children}
+          {children}
         <AnalyticsWrapper />
       </body>
     </html>

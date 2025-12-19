@@ -1,5 +1,3 @@
-import { memo } from "react";
-import styles from "../../Footer/Footer.module.css";
 import { ClassName } from "@/types";
 
 interface SubmitButtonProps extends ClassName {
@@ -7,7 +5,7 @@ interface SubmitButtonProps extends ClassName {
     btnText: string;
 }
 
-export const SubmitButton = memo(({
+export const SubmitButton = ({
     isButtonDisabled = false,
     btnText,
     className
@@ -19,6 +17,4 @@ export const SubmitButton = memo(({
     >
         {btnText}
     </button>
-));
-
-SubmitButton.displayName = "SubmitButton";
+);
