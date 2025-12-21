@@ -37,34 +37,34 @@ export const metadata: Metadata = {
   icons: {
     icon: [
       {
-        url: '/favicon_io/favicon-16x16.png',
-        sizes: '16x16',
-        type: 'image/png'
+        url: "/favicon_io/favicon-16x16.png",
+        sizes: "16x16",
+        type: "image/png",
       },
       {
-        url: '/favicon_io/favicon-32x32.png',
-        sizes: '32x32',
-        type: 'image/png'
+        url: "/favicon_io/favicon-32x32.png",
+        sizes: "32x32",
+        type: "image/png",
       },
       {
-        url: '/favicon_io/android-chrome-192x192.png',
-        sizes: '192x192',
-        type: 'image/png'
+        url: "/favicon_io/android-chrome-192x192.png",
+        sizes: "192x192",
+        type: "image/png",
       },
       {
-        url: '/favicon_io/android-chrome-512x512.png',
-        sizes: '512x512',
-        type: 'image/png'
+        url: "/favicon_io/android-chrome-512x512.png",
+        sizes: "512x512",
+        type: "image/png",
       },
       {
-        url: '/favicon_io/favicon.ico',
-        sizes: '32x32'
+        url: "/favicon_io/favicon.ico",
+        sizes: "32x32",
       },
     ],
-    shortcut: '/favicon_io/favicon.ico',
-    apple: '/favicon_io/apple-touch-icon.png',
+    shortcut: "/favicon_io/favicon.ico",
+    apple: "/favicon_io/apple-touch-icon.png",
   },
-  manifest: '/favicon_io/site.webmanifest',
+  manifest: "/favicon_io/site.webmanifest",
   openGraph: {
     title: "<website_title>",
     description: "<website_description>",
@@ -78,7 +78,7 @@ export const metadata: Metadata = {
         width: 1200,
         height: 630,
         alt: "<website_name> Preview",
-      }
+      },
     ],
   },
   category: "<website_category>",
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
 };
 
 export const viewport: Viewport = {
-  width: 'device-width',
+  width: "device-width",
   initialScale: 1,
   maximumScale: 1,
 };
@@ -101,7 +101,6 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-
       <head>
         <script
           type="application/ld+json"
@@ -115,7 +114,7 @@ export default function RootLayout({
         className={`${openSans.variable} m-0 font-sans text-base antialiased font-normal leading-default bg-gray-50 text-slate-500`}
         suppressHydrationWarning={true}
       >
-          {children}
+        {children}
         <AnalyticsWrapper />
       </body>
     </html>

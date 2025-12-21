@@ -1,246 +1,243 @@
 "use client";
 
-import { PROJECT_TABLE_HEADERS, PROJECTS_DATA, TIMELINE_DATA } from "@/constants";
+import {
+  PROJECT_TABLE_HEADERS,
+  PROJECTS_DATA,
+  TIMELINE_DATA,
+} from "@/constants";
 import { faCheck, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { memo } from "react";
-import * as Tooltip from '@radix-ui/react-tooltip';
+import * as Tooltip from "@radix-ui/react-tooltip";
 import { CardWrapper } from "@/components/utility/CardWrapper";
 import { CardHeaderWrapper } from "@/components/utility/CardHeaderWrapper";
 import { ArrowUp } from "@/components/utility/ArrowUp";
-import { Children, ClassName } from "@/types";
 import Link from "next/link";
-import { useDropdown } from "@/hooks/useDropdown";
 import { PerfectScrollbarComponent } from "@/components/utility/PerfectScrollbarComponent";
-
-interface TableDataWrapperProps extends Children, ClassName {
-    index: number;
-}
+import { useDisclosure } from "@/hooks/useDisclosure";
+import {
+  Caption,
+  Table,
+  TableAvatarCell,
+  TData,
+  THead,
+} from "@/components/utility/Table";
 
 const DROPDOWN_ACTIONS: string[] = [
-    "Action",
-    "Another action",
-    "Something else here",
+  "Action",
+  "Another action",
+  "Something else here",
 ];
 
-const TableDataWrapper = memo(({
-    children, className, index
-}: TableDataWrapperProps) => (
-    <td className={`p-2 align-middle bg-transparent ${index !== PROJECTS_DATA.length - 1 ? 'border-b' : ''} whitespace-nowrap ${className}`}>
-        {children}
-    </td>
-));
-
-TableDataWrapper.displayName = "TableDataWrapper";
-
 export const ManagementCard = memo(() => {
-    const { toggleDropdown, isDropdownOpen, dropdownRef, triggerRef } = useDropdown();
+  const {
+    isOpen: isDropdownOpen,
+    toggle: toggleDropdown,
+    contentRef: dropdownRef,
+    triggerRef,
+  } = useDisclosure();
 
-    return (
-        <>
-            {/* Card 1 */}
-            <CardWrapper outerDivClassName="mb-6 md:mb-0 md:w-1/2 md:flex-none lg:w-2/3 mt-0">
-                <CardHeaderWrapper>
-                    <div className="flex flex-wrap mt-0 -mx-3">
-                        <div className="flex-none w-7/12 max-w-full px-3 mt-0 lg:w-1/2 lg:flex-none">
-                            <h6>Projects</h6>
-                            <p className="mb-0 text-sm leading-normal">
-                                <FontAwesomeIcon
-                                    icon={faCheck}
-                                    className="text-cyan-500"
-                                />
-                                <span className="ml-1 font-semibold">30 done </span>
-                                this month
-                            </p>
-                        </div>
-                        <div className="flex-none w-5/12 max-w-full px-3 my-auto text-right lg:w-1/2 lg:flex-none">
-                            <div className="relative pr-6 lg:float-right">
-                                <button
-                                    ref={triggerRef}
-                                    onClick={toggleDropdown}
-                                    data-dropdown-trigger
-                                    className="cursor-pointer"
-                                    aria-expanded={isDropdownOpen}
-                                    type="button"
-                                >
-                                    <FontAwesomeIcon
-                                        icon={faEllipsisV}
-                                        className="text-slate-400"
-                                    />
-                                </button>
-                                <p className="hidden transform-dropdown-show" />
-
-                                <ul
-                                    ref={dropdownRef}
-                                    data-dropdown-menu
-                                    className={`z-100 text-sm transform-dropdown shadow-soft-3xl duration-250 before:duration-350 before:font-awesome before:ease-soft min-w-44 -ml-34 before:text-5.5 absolute top-0 m-0 list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:top-0 before:right-7 before:left-auto before:z-40 before:text-white before:transition-all before:content-['\\f0d8'] ${isDropdownOpen
-                                        ? 'opacity-100 transform-dropdown-show pointer-events-auto'
-                                        : 'opacity-0 pointer-events-none before:-top-5 transform-dropdown'
-                                        }`}
-                                >
-                                    {DROPDOWN_ACTIONS.map((action, index) => (
-                                        <li
-                                            key={index}
-                                            className="relative"
-                                        >
-                                            <Link className="py-1.2 lg:ease-soft clear-both block w-full whitespace-nowrap rounded-lg border-0 bg-transparent px-4 text-left font-normal text-slate-500 lg:transition-colors lg:duration-300"
-                                                href="#;"
-                                            >
-                                                {action}
-                                            </Link>
-                                        </li>
-                                    ))}
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </CardHeaderWrapper>
-                <div className="flex-auto px-0 pt-0 pb-2">
-                    <PerfectScrollbarComponent 
-                    className="management-table-ps relative overflow-hidden" 
-                    options={{ suppressScrollY: true }} // Only horizontal for the table
+  return (
+    <>
+      {/* Card 1 */}
+      <CardWrapper
+        outerDivClassName="mb-6 md:mb-0 md:w-1/2 md:flex-none lg:w-2/3 mt-0 lg:flex-none"
+        innerDivClassName="border-black/12.5"
+      >
+        <CardHeaderWrapper className="border-black/12.5 border-solid mb-4">
+          <div className="flex flex-wrap mt-0 -mx-3">
+            <div className="flex-none w-7/12 max-w-full px-3 mt-0 lg:w-1/2 lg:flex-none">
+              <h6>Projects</h6>
+              <p className="mb-0 text-sm leading-normal">
+                <FontAwesomeIcon icon={faCheck} className="text-cyan-500" />
+                <span className="ml-1 font-semibold">30 done </span>
+                this month
+              </p>
+            </div>
+            <div className="flex-none w-5/12 max-w-full px-3 my-auto text-right lg:w-1/2 lg:flex-none">
+              <div className="relative pr-6 lg:float-right">
+                <button
+                  ref={triggerRef as React.RefObject<HTMLButtonElement>}
+                  onClick={toggleDropdown}
+                  data-dropdown-trigger
+                  className="cursor-pointer"
+                  aria-expanded={isDropdownOpen}
+                  type="button"
                 >
-                    <div className="p-0">
-                        <table className="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+                  <FontAwesomeIcon
+                    icon={faEllipsisV}
+                    className="text-slate-400"
+                  />
+                </button>
+                <p className="hidden transform-dropdown-show" />
 
-                            <thead className="align-bottom">
-                                <tr>
-                                    {PROJECT_TABLE_HEADERS.map((header, index) => (
-                                        <th
-                                            key={index}
-                                            className={`px-6 py-3 font-bold tracking-normal text-${header.textAlign} uppercase align-middle bg-transparent border-b letter border-b-solid text-xxs whitespace-nowrap border-b-gray-200 text-slate-400 opacity-70 ${header.className}`}>
-                                            {header.header}
-                                        </th>
-                                    ))}
-                                </tr>
-                            </thead>
+                <ul
+                  ref={dropdownRef as React.RefObject<HTMLUListElement>}
+                  data-dropdown-menu
+                  className={`z-100 text-sm transform-dropdown shadow-soft-3xl duration-250 before:duration-350 before:font-awesome before:ease-soft min-w-44 -ml-34 before:text-5.5 absolute top-0 m-0 list-none rounded-lg border-0 border-solid border-transparent bg-white bg-clip-padding px-2 py-4 text-left text-slate-500 opacity-0 transition-all before:absolute before:top-0 before:right-7 before:left-auto before:z-40 before:text-white before:transition-all before:content-['\\f0d8'] ${
+                    isDropdownOpen
+                      ? "opacity-100 transform-dropdown-show pointer-events-auto"
+                      : "opacity-0 pointer-events-none before:-top-5 transform-dropdown"
+                  }`}
+                >
+                  {DROPDOWN_ACTIONS.map((action, index) => (
+                    <li key={index} className="relative">
+                      <Link
+                        className="py-1.2 lg:ease-soft clear-both block w-full whitespace-nowrap rounded-lg border-0 bg-transparent px-4 text-left font-normal text-slate-500 lg:transition-colors lg:duration-300"
+                        href="#;"
+                      >
+                        {action}
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </CardHeaderWrapper>
+        <div className="flex-auto px-0 pt-0 pb-2">
+          <PerfectScrollbarComponent
+            className="management-table-ps relative overflow-hidden touch-pan-y" // "touch-pan-y" allows the PAGE to scroll vertically when we drag our finger on the table.
+            options={{
+              suppressScrollY: true, // Only horizontal for the table
+              wheelPropagation: true, // Allows the page to scroll when we wheel over the table
+            }}
+          >
+            <div className="p-0">
+              <Table>
+                <THead>
+                  <tr>
+                    {PROJECT_TABLE_HEADERS.map((header) => (
+                      <th
+                        key={header.id}
+                        className={`table-header tracking-normal text-${header.textAlign} uppercase letter border-b-solid text-xxs border-b-gray-200 ${header.className}`}
+                      >
+                        {header.header}
+                      </th>
+                    ))}
+                  </tr>
+                </THead>
 
-                            <tbody>
-                                {PROJECTS_DATA.map((data, index) => (
-                                    <tr key={index}>
-                                        <TableDataWrapper index={index}>
-                                            <div className="flex px-2 py-1">
-                                                <img
-                                                    src={data.logo}
-                                                    className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
-                                                    alt={data.name}
-                                                />
-                                                <div className="flex flex-col justify-center">
-                                                    <h6 className="mb-0 text-sm leading-normal">{data.name}</h6>
-                                                </div>
-                                            </div>
-                                        </TableDataWrapper>
-                                        <TableDataWrapper index={index}>
-                                            <Tooltip.Provider
-                                                delayDuration={100}  // It determines how long the mouse must rest on an element before the tooltip reveals itself. Radix usually defaults this to 700ms.
-                                                skipDelayDuration={500}  // It controls how much time can pass between leaving one tooltip and entering another before the delayDuration is applied again.
-                                            >
-                                                <div className="mt-2 avatar-group">
-                                                    {data.members.map((member, memberIndex) => (
-                                                        <Tooltip.Root key={memberIndex}>
-                                                            {/* "asChild" prop on "Tooltip.Trigger" ensures we don't wrap our <a> tag in an extra <span> or <div> */}
-                                                            <Tooltip.Trigger asChild>
-                                                                <a
-                                                                    href="javascript:;"
-                                                                    className={`relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30 ${memberIndex !== 0 ? "-ml-4" : ""
-                                                                        }`}
-                                                                    data-target="tooltip_trigger"
-                                                                    data-placement="bottom"
-                                                                >
-                                                                    <img
-                                                                        src={member.img}
-                                                                        className="w-full rounded-full"
-                                                                        alt={member.name}
-                                                                    />
-                                                                </a>
-                                                            </Tooltip.Trigger>
-
-                                                            {/* "Tooltip.Portal" physically moves the tooltip div to the body tag when it renders */}
-                                                            <Tooltip.Portal>
-                                                                <Tooltip.Content
-                                                                    className="z-50 px-2 py-1 text-sm text-white bg-black rounded-lg shadow-soft-lg animate-fade-in-up"
-                                                                    sideOffset={5}
-                                                                    side="bottom"
-                                                                >
-                                                                    {member.name}
-                                                                    <Tooltip.Arrow className="fill-black" />
-                                                                </Tooltip.Content>
-                                                            </Tooltip.Portal>
-                                                        </Tooltip.Root>
-                                                    ))}
-                                                </div>
-                                            </Tooltip.Provider>
-                                        </TableDataWrapper>
-                                        <TableDataWrapper
-                                            index={index}
-                                            className="text-sm leading-normal"
-                                        >
-                                            <span className="text-xs font-semibold leading-tight">{data.budget}</span>
-                                        </TableDataWrapper>
-                                        <TableDataWrapper index={index}>
-                                            <div className="w-3/4 mx-auto">
-                                                <div>
-                                                    <div>
-                                                        <span className="text-xs font-semibold leading-tight">{data.completion}%</span>
-                                                    </div>
-                                                </div>
-                                                <div className="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
-                                                    <div
-                                                        className={`duration-600 ease-soft -mt-0.38 -ml-px flex h-1.5 flex-col justify-center overflow-hidden whitespace-nowrap rounded bg-fuchsia-500 text-center text-white transition-all ${data.completion === 100 ? 'bg-gradient-soft-green600-lime400' : 'bg-gradient-soft-blue600-cyan400'}`}
-                                                        style={{ width: `${data.completion}%` }}
-                                                        role="progressbar"
-                                                        aria-valuenow={data.completion}
-                                                        aria-valuemin={0}
-                                                        aria-valuemax={100}
-                                                    />
-                                                </div>
-                                            </div>
-                                        </TableDataWrapper>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                    </PerfectScrollbarComponent>
-                </div>
-            </CardWrapper>
-
-            {/* Card 2 */}
-            <CardWrapper
-                outerDivClassName="md:w-1/2 md:flex-none lg:w-1/3"
-                innerDivClassName="h-full"
-            >
-                <CardHeaderWrapper>
-                    <h6>Orders overview</h6>
-                    <ArrowUp
-                        percentage="24%"
-                        timeframe="this month"
-                    />
-                </CardHeaderWrapper>
-                <div className="flex-auto p-4">
-                    <div className="before:border-r-solid relative before:absolute before:top-0 before:left-4 before:h-full before:border-r-2 before:border-r-slate-300 before:content-[''] before:lg:-ml-px">
-                        {TIMELINE_DATA.map((data, index) => (
-                            <div
-                                key={index}
-                                className="relative mb-4 mt-0 after:clear-both after:table after:content-['']"
-                            >
-                                <span className="w-6.5 h-6.5 text-base absolute left-0.75 z-10 inline-flex items-center justify-center rounded-full bg-white text-center font-semibold">
-                                    <FontAwesomeIcon
-                                        icon={data.icon}
-                                        className={`relative z-10 text-md ${data.iconColor}`}
+                <tbody>
+                  {PROJECTS_DATA.map((data, index) => (
+                    <tr key={data.id}>
+                      <TData isLastRow={index === PROJECTS_DATA.length - 1}>
+                        <TableAvatarCell img={data.logo} name={data.name} />
+                      </TData>
+                      <TData isLastRow={index === PROJECTS_DATA.length - 1}>
+                        <Tooltip.Provider
+                          delayDuration={100} // It determines how long the mouse must rest on an element before the tooltip reveals itself. Radix usually defaults this to 700ms.
+                          skipDelayDuration={500} // It controls how much time can pass between leaving one tooltip and entering another before the delayDuration is applied again.
+                        >
+                          <div className="mt-2 avatar-group">
+                            {data.members.map((member) => (
+                              <Tooltip.Root key={member.id}>
+                                {/* "asChild" prop on "Tooltip.Trigger" ensures we don't wrap our <a> tag in an extra <span> or <div> */}
+                                <Tooltip.Trigger asChild>
+                                  <a
+                                    href="javascript:;"
+                                    className={`relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30 ${
+                                      member.id !== 1 ? "-ml-4" : ""
+                                    }`}
+                                    data-target="tooltip_trigger"
+                                    data-placement="bottom"
+                                  >
+                                    <img
+                                      src={member.img}
+                                      className="w-full rounded-full"
+                                      alt={member.name}
                                     />
-                                </span>
-                                <div className="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
-                                    <h6 className="mb-0 text-sm font-semibold leading-normal text-slate-700"> {data.title}</h6>
-                                    <p className="mt-1 mb-0 text-xs font-semibold leading-tight text-slate-400">{data.date}</p>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                                  </a>
+                                </Tooltip.Trigger>
+
+                                {/* "Tooltip.Portal" physically moves the tooltip div to the body tag when it renders */}
+                                <Tooltip.Portal>
+                                  <Tooltip.Content
+                                    className="z-50 px-2 py-1 text-sm text-white bg-black rounded-lg shadow-soft-lg animate-fade-in-up"
+                                    sideOffset={5}
+                                    side="bottom"
+                                  >
+                                    {member.name}
+                                    <Tooltip.Arrow className="fill-black" />
+                                  </Tooltip.Content>
+                                </Tooltip.Portal>
+                              </Tooltip.Root>
+                            ))}
+                          </div>
+                        </Tooltip.Provider>
+                      </TData>
+                      <TData
+                        isLastRow={index === PROJECTS_DATA.length - 1}
+                        className="text-left ps-2 text-sm leading-normal"
+                      >
+                        <Caption>{data.budget}</Caption>
+                      </TData>
+                      <TData isLastRow={index === PROJECTS_DATA.length - 1}>
+                        <div className="w-3/4 mx-auto">
+                          <Caption>{data.completion}%</Caption>
+                          <div className="text-xs h-0.75 w-30 m-0 flex overflow-visible rounded-lg bg-gray-200">
+                            <div
+                              className={`duration-600 ease-soft -mt-0.38 -ml-px flex h-1.5 flex-col justify-center overflow-hidden whitespace-nowrap rounded bg-fuchsia-500 text-center text-white transition-all ${
+                                data.completion === 100
+                                  ? "bg-gradient-soft-green600-lime400"
+                                  : "bg-gradient-soft-blue600-cyan400"
+                              }`}
+                              style={{ width: `${data.completion}%` }}
+                              role="progressbar"
+                              aria-valuenow={data.completion}
+                              aria-valuemin={0}
+                              aria-valuemax={100}
+                            />
+                          </div>
+                        </div>
+                      </TData>
+                    </tr>
+                  ))}
+                </tbody>
+              </Table>
+            </div>
+          </PerfectScrollbarComponent>
+        </div>
+      </CardWrapper>
+
+      {/* Card 2 */}
+      <CardWrapper
+        outerDivClassName="md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none"
+        innerDivClassName="h-full border-black/12.5"
+      >
+        <CardHeaderWrapper className="border-black/12.5 border-solid">
+          <h6>Orders overview</h6>
+          <ArrowUp percentage="24%" time="this month" />
+        </CardHeaderWrapper>
+        <div className="flex-auto p-4">
+          <div className="before:border-r-solid relative before:absolute before:top-0 before:left-4 before:h-full before:border-r-2 before:border-r-slate-300 before:content-[''] before:lg:-ml-px">
+            {TIMELINE_DATA.map((data) => (
+              <div
+                key={data.id}
+                className="relative mb-4 mt-0 after:clear-both after:table after:content-['']"
+              >
+                <span className="w-6.5 h-6.5 text-base absolute left-0.75 z-10 inline-flex items-center justify-center rounded-full bg-white text-center font-semibold">
+                  <FontAwesomeIcon
+                    icon={data.icon}
+                    className={`relative z-10 text-md ${data.iconColor}`}
+                  />
+                </span>
+                <div className="ml-11.252 pt-1.4 lg:max-w-120 relative -top-1.5 w-auto">
+                  <h6 className="mb-0 text-sm font-semibold leading-normal text-slate-700">
+                    {" "}
+                    {data.title}
+                  </h6>
+                  <p className="mt-1 mb-0 text-xs font-semibold leading-tight text-slate-400">
+                    {data.date}
+                  </p>
                 </div>
-            </CardWrapper >
-        </>
-    )
+              </div>
+            ))}
+          </div>
+        </div>
+      </CardWrapper>
+    </>
+  );
 });
 
 ManagementCard.displayName = "ManagementCard";

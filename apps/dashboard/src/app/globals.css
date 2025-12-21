@@ -1040,6 +1040,11 @@
     background-color: #64748b !important;
     bottom: 1px !important;
   }
+
+  /* TABLES */
+  .table-header {
+    @apply px-6 py-3 font-bold align-middle bg-transparent border-b whitespace-nowrap text-slate-400 opacity-70;
+  }
 }
 
 @layer utilities {
@@ -3631,6 +3636,10 @@
   .management-table-ps .ps__rail-x:hover {
     opacity: 1 !important;
   }
+
+  .caption {
+    @apply text-xs leading-tight;
+  }
 }
 
 @media (max-width: 768px) {
@@ -4215,17 +4224,3 @@
 .bg-gradient-soft-green600-lime400 {
   background-image: linear-gradient(to top left, #17ad37, #98ec2d);
 }
-
-/* TABLE SCROLLBAR CUSTOMIZATION */
-/* 1. Reduce the slider (thumb) and rail height */
-/* .management-table-ps .ps__rail-x {
-  height: 6px !important;
-  bottom: 2px !important;
-  background-color: transparent !important;
-}
-
-.management-table-ps .ps__thumb-x {
-  height: 4px !important; 
-  background-color: #64748b !important;
-  bottom: 1px !important;
-} */
