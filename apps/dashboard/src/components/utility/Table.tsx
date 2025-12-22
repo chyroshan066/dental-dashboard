@@ -7,12 +7,16 @@ interface TDataProps extends Children, ClassName {
 
 interface TableAvatarCellProps extends Name, Img {
   subTitle?: string;
+  marginRight?: number;
 }
 
 interface CaptionProps extends Children, ClassName {}
+interface TableProps extends Children, ClassName {}
 
-export const Table = ({ children }: Children) => (
-  <table className="items-center w-full mb-0 align-top border-gray-200 text-slate-500">
+export const Table = ({ children, className }: TableProps) => (
+  <table
+    className={`items-center w-full mb-0 align-top border-gray-200 text-slate-500 ${className}`}
+  >
     {children}
   </table>
 );
@@ -24,7 +28,7 @@ export const THead = ({ children }: Children) => (
 export const TData = ({ children, className, isLastRow }: TDataProps) => (
   <td
     className={`p-2 align-middle bg-transparent ${
-      !isLastRow && "border-b"
+      !isLastRow ? "border-b" : "border-b-0"
     } whitespace-nowrap ${className}`}
   >
     {children}
@@ -35,13 +39,14 @@ export const TableAvatarCell = ({
   img,
   name,
   subTitle,
+  marginRight = 4,
 }: TableAvatarCellProps) => (
   <div className="flex px-2 py-1">
     <Image
       src={img}
       width={36}
       height={36}
-      className="inline-flex items-center justify-center mr-4 text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl"
+      className={`inline-flex items-center justify-center mr-${marginRight} text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl`}
       alt={name}
     />
     <div className="flex flex-col justify-center">
