@@ -162,6 +162,12 @@ export interface PaymentMethod extends Id, Logo, Alt, ClassName {
 
 export interface Invoice extends Id, Date, Amount {}
 
+export type TransactionType = "income" | "expense" | "pending";
+
+export interface Transaction extends Id, Name, Date, Amount {
+  type: TransactionType;
+}
+
 // interface Size used once in NucleoIcon
 // interface isLastRow used once in Table
 // interface SubTitle used once in Tale
