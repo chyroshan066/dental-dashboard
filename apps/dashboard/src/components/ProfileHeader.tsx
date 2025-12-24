@@ -2,6 +2,7 @@
 
 import { PROFILE_TABS } from "@/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 
 export const ProfileHeader = () => {
@@ -58,10 +59,12 @@ export const ProfileHeader = () => {
           {/* Avatar */}
           <div className="flex-none w-auto max-w-full px-3">
             <div className="text-base ease-soft-in-out h-18.5 w-18.5 relative inline-flex items-center justify-center rounded-xl text-white transition-all duration-200">
-              <img
+              <Image
                 src="/images/random/bruce-mars.jpg"
+                width={74}
+                height={74}
                 alt="profile_image"
-                className="w-full shadow-soft-sm rounded-xl"
+                className="w-full shadow-soft-sm rounded-xl object-cover"
               />
             </div>
           </div>

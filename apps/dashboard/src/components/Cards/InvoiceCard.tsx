@@ -1,4 +1,3 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CardWrapper } from "../utility/CardWrapper";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { INVOCIES } from "@/constants";
@@ -42,7 +41,7 @@ export const InvoiceCard = () => (
               {invoice.amount}
               <IconButton
                 paddingSize={0}
-                className="ml-6 tracking-tight-soft"
+                className="ml-6 tracking-tight-soft bg-150 bg-x-25"
                 textSize="sm"
                 icon={faFilePdf}
                 label="PDF"

@@ -35,7 +35,7 @@ export const BillingInfoCard = () => (
             </div>
             <div className="ml-auto text-right">
               <IconButton
-                className="relative z-10 text-transparent bg-clip-text"
+                className="relative z-10 text-transparent bg-clip-text bg-150 bg-x-25"
                 backgroundColor="gradient-soft-red600-rose400"
                 textColor="text-red-500"
                 icon={faTrashAlt}

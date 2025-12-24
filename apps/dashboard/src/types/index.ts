@@ -189,3 +189,4 @@ export interface Setting extends Label {
 // interface IconClassName used once in IconButton
 // interface backgroundColor used once in IconButton
 // interface textColor used once in IconButton
+// interface leading used once in IconButton
