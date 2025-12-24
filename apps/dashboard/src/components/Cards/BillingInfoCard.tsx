@@ -2,15 +2,16 @@ import { CardWrapper } from "../utility/CardWrapper";
 import { faPencilAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { BILLING_DETAILS } from "@/constants";
 import { IconButton } from "../utility/Button/IconButton";
+import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
 
 export const BillingInfoCard = () => (
   <CardWrapper
     outerDivClassName="mt-6 md:w-7/12 md:flex-none"
     innerDivClassName="bg-white shadow-soft-xl"
   >
-    <div className="p-6 px-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
+    <CardHeaderWrapper className="px-4">
       <h6 className="mb-0">Billing Information</h6>
-    </div>
+    </CardHeaderWrapper>
     <div className="flex-auto p-4 pt-6">
       <ul className="flex flex-col pl-0 mb-0 rounded-lg">
         {BILLING_DETAILS.map((profile) => (

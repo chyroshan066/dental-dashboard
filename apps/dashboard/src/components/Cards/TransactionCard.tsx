@@ -10,6 +10,7 @@ import { CardWrapper } from "../utility/CardWrapper";
 import { TRANSACTION_GROUPS } from "@/constants";
 import { TransactionType } from "@/types";
 import React from "react";
+import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
 
 const transactionConfigs: Record<
   TransactionType,
@@ -41,7 +42,7 @@ export const TransactionCard = () => (
     outerDivClassName="mt-6 md:w-5/12 md:flex-none"
     innerDivClassName="h-full mb-6 shadow-soft-xl bg-white"
   >
-    <div className="p-6 px-4 pb-0 mb-0 bg-white border-b-0 rounded-t-2xl">
+    <CardHeaderWrapper className="px-4">
       <div className="flex flex-wrap -mx-3">
         <div className="max-w-full px-3 md:w-1/2 md:flex-none">
           <h6 className="mb-0">Your Transactions</h6>
@@ -51,7 +52,7 @@ export const TransactionCard = () => (
           <small>23 - 30 March 2020</small>
         </div>
       </div>
-    </div>
+    </CardHeaderWrapper>
     <div className="flex-auto p-4 pt-6">
       {TRANSACTION_GROUPS.map((group) => (
         <React.Fragment key={group.title}>

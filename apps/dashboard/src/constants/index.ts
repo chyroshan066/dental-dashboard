@@ -14,3 +14,4 @@ export * from "./invoices";
 export * from "./billing-details";
 export * from "./transactions";
 export * from "./profile-tabs";
+export * from "./settings";

@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { CardWrapper } from "../utility/CardWrapper";
 import Link from "next/link";
 import { PAYMENT_METHODS } from "@/constants";
+import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
 
 export const PaymentMethodCard = () => (
   <CardWrapper
@@ -10,7 +11,10 @@ export const PaymentMethodCard = () => (
     innerDivClassName="mt-6 bg-white border-transparent shadow-soft-xl"
     isWidthFull={false}
   >
-    <div className="p-4 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+    <CardHeaderWrapper
+      className="border-b-solid border-b-transparent"
+      paddingSize={4}
+    >
       <div className="flex flex-wrap -mx-3">
         <div className="flex items-center flex-none w-1/2 max-w-full px-3">
           <h6 className="mb-0">Payment Method</h6>
@@ -25,7 +29,7 @@ export const PaymentMethodCard = () => (
           </Link>
         </div>
       </div>
-    </div>
+    </CardHeaderWrapper>
     <div className="flex-auto p-4">
       <div className="flex flex-wrap -mx-3">
         {PAYMENT_METHODS.map((method) => (

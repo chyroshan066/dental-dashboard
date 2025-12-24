@@ -98,6 +98,10 @@ export interface Label {
   label: string;
 }
 
+export interface PaddingSize {
+  paddingSize?: number;
+}
+
 interface BaseNotification extends Id, Href, Title, Message, Time {}
 
 interface ImageNotification extends BaseNotification {
@@ -176,7 +180,6 @@ export interface ProfileTab extends Label, Icon, Value {}
 // interface Size used once in NucleoIcon
 // interface isLastRow used once in Table
 // interface SubTitle used once in Tale
-// interface paddingSize used once in IconButton
 // interface textSize used once in IconButton
 // interface IconClassName used once in IconButton
 // interface backgroundColor used once in IconButton

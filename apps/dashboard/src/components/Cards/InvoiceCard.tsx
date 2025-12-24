@@ -3,13 +3,17 @@ import { CardWrapper } from "../utility/CardWrapper";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { INVOCIES } from "@/constants";
 import { IconButton } from "../utility/Button/IconButton";
+import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
 
 export const InvoiceCard = () => (
   <CardWrapper
     outerDivClassName="lg:w-1/3 lg:flex-none"
     innerDivClassName="h-full bg-white border-transparent shadow-soft-xl"
   >
-    <div className="p-4 pb-0 mb-0 bg-white border-b-0 border-b-solid rounded-t-2xl border-b-transparent">
+    <CardHeaderWrapper
+      className="border-b-solid border-b-transparent"
+      paddingSize={4}
+    >
       <div className="flex flex-wrap -mx-3">
         <div className="flex items-center flex-none w-1/2 max-w-full px-3">
           <h6 className="mb-0">Invoices</h6>
@@ -20,7 +24,7 @@ export const InvoiceCard = () => (
           </button>
         </div>
       </div>
-    </div>
+    </CardHeaderWrapper>
     <div className="flex-auto p-4 pb-0">
       <ul className="flex flex-col pl-0 mb-0 rounded-lg">
         {INVOCIES.map((invoice) => (

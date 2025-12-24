@@ -1,8 +1,7 @@
-import { ClassName, Icon, Label } from "@/types";
+import { ClassName, Icon, Label, PaddingSize } from "@/types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
-interface IconButtonProps extends ClassName, Icon, Label {
-  paddingSize?: number;
+interface IconButtonProps extends ClassName, Icon, Label, PaddingSize {
   textSize?: "xs" | "sm";
   iconClassName?: string;
   backgroundColor?: string;
