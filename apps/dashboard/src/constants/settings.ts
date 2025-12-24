@@ -1,4 +1,6 @@
-export const ACCOUNT_SETTINGS = [
+import { Setting } from "@/types";
+
+export const ACCOUNT_SETTINGS: Setting[] = [
   {
     id: "follow",
     label: "Email me when someone follows me",
@@ -16,7 +18,7 @@ export const ACCOUNT_SETTINGS = [
   },
 ];
 
-export const APPLICATION_SETTINGS = [
+export const APPLICATION_SETTINGS: Setting[] = [
   {
     id: "launches projects",
     label: "New launches and projects",

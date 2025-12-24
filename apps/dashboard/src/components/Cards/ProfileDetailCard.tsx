@@ -1,0 +1,86 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
+import { CardWrapper } from "../utility/CardWrapper";
+import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
+import * as Tooltip from "@radix-ui/react-tooltip";
+import { Separator } from "../utility/Separator";
+import { PROFILE_DETAILS } from "@/constants";
+import { SOCIAL_LINKS } from "@/constants";
+
+export const ProfileDetailCard = () => (
+  <CardWrapper
+    outerDivClassName="lg-max:mt-6 xl:w-4/12"
+    innerDivClassName="h-full bg-white shadow-soft-xl"
+  >
+    <CardHeaderWrapper paddingSize={4}>
+      <div className="flex flex-wrap items-center -mx-3">
+        <div className="flex items-center w-8/12 max-w-full px-3 shrink-0 md:flex-none">
+          <h6 className="mb-0">Profile Information</h6>
+        </div>
+        <div className="w-4/12 max-w-full px-3 text-right shrink-0 md:flex-none">
+          <Tooltip.Provider
+            delayDuration={100} // It determines how long the mouse must rest on an element before the tooltip reveals itself. Radix usually defaults this to 700ms.
+            skipDelayDuration={500} // It controls how much time can pass between leaving one tooltip and entering another before the delayDuration is applied again.
+          >
+            <Tooltip.Root>
+              <Tooltip.Trigger asChild>
+                <a href="#" data-target="tooltip_trigger" data-placement="top">
+                  <FontAwesomeIcon
+                    icon={faUserEdit}
+                    className="leading-normal text-sm text-slate-400"
+                  />
+                </a>
+              </Tooltip.Trigger>
+              <Tooltip.Portal>
+                <Tooltip.Content
+                  className="px-2 py-1 text-center text-white bg-black rounded-lg text-sm"
+                  sideOffset={5}
+                  side="top"
+                >
+                  Edit Profile
+                  <Tooltip.Arrow className="fill-black" />
+                </Tooltip.Content>
+              </Tooltip.Portal>
+            </Tooltip.Root>
+          </Tooltip.Provider>
+        </div>
+      </div>
+    </CardHeaderWrapper>
+    <div className="flex-auto p-4">
+      <p className="leading-normal text-sm">
+        Hi, I&apos;m Alec Thompson, Decisions: If you can&apos;t decide, the
+        answer is no. If two equally difficult paths, choose the one more
+        painful in the short term (pain avoidance is creating an illusion of
+        equality).
+      </p>
+      <Separator className="my-6" />
+      <ul className="flex flex-col pl-0 mb-0 rounded-lg">
+        {PROFILE_DETAILS.map((detail) => (
+          <li
+            key={detail.id}
+            className="relative block px-4 py-2 first:pt-0 pl-0 leading-normal bg-white border-0 first:rounded-t-lg not-first:border-t-0 text-sm text-inherit"
+          >
+            <strong className="text-slate-700">{detail.label}:</strong> &nbsp;{" "}
+            {detail.value}
+          </li>
+        ))}
+        <li className="relative block px-4 py-2 pb-0 pl-0 bg-white border-0 border-t-0 rounded-b-lg text-inherit">
+          <strong className="leading-normal text-sm text-slate-700">
+            Social:
+          </strong>
+          &nbsp;
+          {SOCIAL_LINKS.map((link) => (
+            <a
+              key={link.id}
+              className={`inline-block py-0 pl-1 pr-2 mb-0 font-bold text-center text-${link.color} align-middle transition-all bg-transparent border-0 rounded-lg shadow-none cursor-pointer leading-pro text-xs ease-soft-in bg-none`}
+              href="#"
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={link.icon} className="fa-lg" />
+            </a>
+          ))}
+        </li>
+      </ul>
+    </div>
+  </CardWrapper>
+);

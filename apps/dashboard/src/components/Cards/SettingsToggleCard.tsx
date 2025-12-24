@@ -2,8 +2,14 @@ import { ACCOUNT_SETTINGS, APPLICATION_SETTINGS } from "@/constants";
 import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
 import { CardWrapper } from "../utility/CardWrapper";
 import React from "react";
+import { Setting } from "@/types";
 
-const MERGED_SETTINGS = [
+interface MergedSetting {
+  category: string;
+  settings: Setting[];
+}
+
+const MERGED_SETTINGS: MergedSetting[] = [
   {
     category: "Account",
     settings: ACCOUNT_SETTINGS,

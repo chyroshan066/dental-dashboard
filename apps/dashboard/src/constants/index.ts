@@ -15,3 +15,5 @@ export * from "./billing-details";
 export * from "./transactions";
 export * from "./profile-tabs";
 export * from "./settings";
+export * from "./profile-details";
+export * from "./social-links";

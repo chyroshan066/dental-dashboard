@@ -177,6 +177,11 @@ export interface Transaction extends Invoice, Name {
 
 export interface ProfileTab extends Label, Icon, Value {}
 
+export interface Setting extends Label {
+  id: string;
+  defaultChecked: boolean;
+}
+
 // interface Size used once in NucleoIcon
 // interface isLastRow used once in Table
 // interface SubTitle used once in Tale

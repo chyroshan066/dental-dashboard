@@ -1,7 +1,12 @@
-import { ClassName } from "@/types";
+import { ClassName, Color } from "@/types";
 
-export const Separator = ({ className }: ClassName) => (
+interface SeparatorProps extends ClassName, Color {}
+
+export const Separator = ({
+  className,
+  color = "black/40",
+}: SeparatorProps) => (
   <hr
-    className={`h-px ${className} bg-transparent bg-gradient-to-r from-transparent via-black/40 to-transparent`}
+    className={`h-px ${className} bg-transparent bg-gradient-to-r from-transparent via-${color} to-transparent`}
   />
 );
