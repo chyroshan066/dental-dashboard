@@ -1,7 +1,11 @@
-import { Children } from "@/types";
+import { Children, ClassName } from "@/types";
 
-export const Main = ({ children }: Children) => (
-  <main className="ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen rounded-xl transition-all duration-200">
+interface MainProps extends Children, ClassName {}
+
+export const Main = ({ children, className }: MainProps) => (
+  <main
+    className={`ease-soft-in-out xl:ml-68.5 relative h-full max-h-screen transition-all duration-200 ${className}`}
+  >
     {children}
   </main>
 );

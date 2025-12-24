@@ -8,7 +8,7 @@ export default function Tables() {
   return (
     <>
       <SideNav />
-      <Main>
+      <Main className="rounded-xl">
         <NavBar />
         <div className="w-full px-6 py-6 mx-auto">
           <DataTable />

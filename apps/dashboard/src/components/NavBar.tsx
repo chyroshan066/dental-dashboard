@@ -1,6 +1,6 @@
 "use client";
 
-import { NAVLINKS, NOTIFICATIONS } from "@/constants";
+import { ACCOUNT_PAGES, NAVLINKS, NOTIFICATIONS } from "@/constants";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import { Notification } from "@/types";
 import {
@@ -15,6 +15,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { memo } from "react";
+
+const MERGED_LINKS = [...NAVLINKS, ...ACCOUNT_PAGES];
 
 export const NavBar = memo(() => {
   const pathname = usePathname();
@@ -31,29 +33,53 @@ export const NavBar = memo(() => {
     window.dispatchEvent(new Event("toggle-sidenav"));
   };
 
-  const activePage = NAVLINKS.find((link) => link.href === pathname);
+  const activePage = MERGED_LINKS.find((link) => link.href === pathname);
   const pageName = activePage ? activePage.name : "Dashboard";
+  const isProfile = pathname === "/profile";
 
   return (
     <nav
-      className={`relative flex flex-wrap items-center justify-between px-0 py-2 mx-6 transition-all shadow-none duration-250 ease-soft-in rounded-2xl lg:flex-nowrap lg:justify-start`}
+      className={`flex flex-wrap items-center justify-between py-2 transition-all shadow-none duration-250 ease-soft-in lg:flex-nowrap lg:justify-start ${
+        isProfile
+          ? "absolute z-20 px-6 text-white w-full"
+          : "relative px-0 mx-6 rounded-2xl"
+      }`}
     >
-      <div className="flex items-center justify-between w-full px-4 py-1 mx-auto flex-wrap-inherit">
+      <div
+        className={`flex items-center justify-between w-full py-1 mx-auto flex-wrap-inherit ${
+          isProfile ? "px-6" : "px-4"
+        }`}
+      >
         <nav>
-          <ol className="flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16">
+          <ol
+            className={`flex flex-wrap pt-1 mr-12 bg-transparent rounded-lg sm:mr-16 ${
+              isProfile && "pl-2 pr-4"
+            }`}
+          >
             <li className="text-sm leading-normal">
-              <Link className="opacity-50 text-slate-700" href="#">
+              <Link
+                className={`opacity-50 ${!isProfile && "text-slate-700"}`}
+                href="#"
+              >
                 Pages
               </Link>
             </li>
             <li
-              className="text-sm pl-2 capitalize leading-normal text-slate-700 before:float-left before:pr-2 before:text-gray-600 before:content-['/']"
+              className={`text-sm pl-2 capitalize leading-normal before:float-left before:pr-2 before:content-['/'] ${
+                !isProfile && "text-slate-700 before:text-gray-600"
+              }`}
               aria-current="page"
             >
               {pageName}
             </li>
           </ol>
-          <h6 className="mb-0 font-bold capitalize">{pageName}</h6>
+          <h6
+            className={`font-bold capitalize ${
+              isProfile ? "mb-2 ml-2 text-white" : "mb-0"
+            }`}
+          >
+            {pageName}
+          </h6>
         </nav>
 
         <div className="flex items-center mt-2 grow sm:mt-0 sm:mr-6 md:mr-0 lg:flex lg:basis-auto">
@@ -73,7 +99,11 @@ export const NavBar = memo(() => {
             <li className="flex items-center">
               <Link
                 href="./pages/sign-in.html"
-                className="block px-0 py-2 text-sm font-semibold transition-all ease-nav-brand text-slate-500"
+                className={`block px-0 py-2 text-sm font-semibold transition-all ${
+                  isProfile
+                    ? "text-white ease-soft-in-out"
+                    : "text-slate-500 ease-nav-brand"
+                }`}
               >
                 <FontAwesomeIcon icon={faUser} className="sm:mr-1" />
                 <span className="hidden sm:inline">Sign In</span>
@@ -82,7 +112,11 @@ export const NavBar = memo(() => {
             <li className="flex items-center pl-4 xl:hidden">
               <button
                 onClick={handleSidenavToggle}
-                className="block p-0 text-sm transition-all ease-nav-brand text-slate-500 bg-transparent border-0 cursor-pointer"
+                className={`block p-0 text-sm transition-all ${
+                  isProfile
+                    ? "ease-soft-in-out text-white"
+                    : "ease-nav-brand text-slate-500 bg-transparent border-0 cursor-pointer"
+                }`}
                 data-sidenav-trigger
                 type="button"
               >
@@ -91,9 +125,9 @@ export const NavBar = memo(() => {
                     // _ tells the computer: "Ignore the value, I only care about the second argument (the number)"
                     <i
                       key={index}
-                      className={`ease-soft relative block h-0.5 rounded-sm bg-slate-500 transition-all ${
-                        index !== 2 ? "mb-0.75" : ""
-                      }`}
+                      className={`ease-soft relative block h-0.5 rounded-sm transition-all ${
+                        index !== 2 && "mb-0.75"
+                      } ${isProfile ? "bg-white" : "bg-slate-500"}`}
                     />
                   ))}
                 </div>
@@ -102,7 +136,11 @@ export const NavBar = memo(() => {
             <li className="flex items-center px-4">
               <Link
                 href="#"
-                className="p-0 text-sm transition-all ease-nav-brand text-slate-500"
+                className={`p-0 text-sm transition-all ${
+                  isProfile
+                    ? "text-white ease-soft-in-out"
+                    : "text-slate-500 ease-nav-brand"
+                }`}
               >
                 <FontAwesomeIcon icon={faCog} className="cursor-pointer" />
               </Link>
@@ -113,7 +151,11 @@ export const NavBar = memo(() => {
               <button
                 ref={triggerRef as React.RefObject<HTMLButtonElement>}
                 onClick={toggleDropdown}
-                className="block p-0 text-sm transition-all ease-nav-brand text-slate-500 bg-transparent border-0 cursor-pointer"
+                className={`block p-0 text-sm transition-all ease-nav-brand ${
+                  isProfile
+                    ? "text-white"
+                    : "text-slate-500 bg-transparent border-0 cursor-pointer"
+                }`}
                 data-dropdown-trigger
                 aria-expanded={isDropdownOpen}
                 type="button"
@@ -135,9 +177,9 @@ export const NavBar = memo(() => {
                     <Link
                       className={`ease-soft py-1.2 clear-both block w-full whitespace-nowrap rounded-lg ${
                         notif.type === "image" && "bg-transparent"
-                      } px-4 duration-300 hover:bg-gray-200 hover:text-slate-700 ${
-                        notif.type === "image" && "lg:transition-colors"
-                      } ${notif.type !== "image" && "transition-colors"}`}
+                      } px-4 duration-300 ${
+                        !isProfile && "hover:bg-gray-200 hover:text-slate-700"
+                      } lg:transition-colors`}
                       href={notif.href}
                     >
                       <div className="flex py-1">
@@ -155,7 +197,11 @@ export const NavBar = memo(() => {
                             />
                           </div>
                         ) : (
-                          <div className="inline-flex items-center justify-center my-auto mr-4 text-sm text-white transition-all duration-200 ease-nav-brand bg-gradient-soft-slate600-slate300 h-9 w-9 rounded-xl">
+                          <div
+                            className={`inline-flex items-center justify-center my-auto mr-4 text-sm text-white transition-all duration-200 bg-gradient-soft-slate600-slate300 h-9 w-9 rounded-xl ${
+                              isProfile ? "ease-soft-in-out" : "ease-nav-brand"
+                            }`}
+                          >
                             <FontAwesomeIcon icon={notif.asset} />
                           </div>
                         )}

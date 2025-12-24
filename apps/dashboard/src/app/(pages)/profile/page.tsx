@@ -1,15 +1,15 @@
-import { DashboardGrid } from "@/components/DashboardGrid";
 import { NavBar } from "@/components/NavBar";
+import { ProfileHeader } from "@/components/ProfileHeader";
 import { SideNav } from "@/components/SideNav";
 import { Main } from "@/components/utility/Main";
 
-export default function Home() {
+export default function Profile() {
   return (
     <>
       <SideNav />
-      <Main className="rounded-xl">
+      <Main className="bg-gray-50">
         <NavBar />
-        <DashboardGrid />
+        <ProfileHeader />
       </Main>
     </>
   );

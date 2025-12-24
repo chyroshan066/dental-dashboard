@@ -76,6 +76,10 @@ interface Amount {
   amount: string;
 }
 
+interface Value {
+  value: string;
+}
+
 export interface Time {
   time: string;
 }
@@ -86,8 +90,7 @@ export interface Color {
 
 export interface NavLink extends Name, Href {}
 
-export interface Stat extends Id, Title, Color, Icon {
-  value: string;
+export interface Stat extends Id, Title, Color, Icon, Value {
   change: string;
 }
 
@@ -108,7 +111,7 @@ interface IconNotification extends BaseNotification {
 }
 
 export type Notification = ImageNotification | IconNotification;
-export interface BaseLink extends Id, Name, Href {}
+export interface BaseLink extends Id, NavLink {}
 export interface Link extends BaseLink, Icon {}
 
 export interface ChartMetic extends Id, Icon, Color, Completion, Label {
@@ -164,9 +167,11 @@ export interface Invoice extends Id, Date, Amount {}
 
 export type TransactionType = "income" | "expense" | "pending";
 
-export interface Transaction extends Id, Name, Date, Amount {
+export interface Transaction extends Invoice, Name {
   type: TransactionType;
 }
+
+export interface ProfileTab extends Label, Icon, Value {}
 
 // interface Size used once in NucleoIcon
 // interface isLastRow used once in Table

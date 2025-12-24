@@ -9,19 +9,19 @@ export const ACCOUNT_PAGES: Link[] = [
   {
     id: 1,
     name: "Profile",
-    href: "/",
+    href: "/profile",
     icon: faUser,
   },
   {
     id: 2,
     name: "Sign In",
-    href: "/",
+    href: "/signin",
     icon: faFileLines,
   },
   {
     id: 3,
     name: "Sign Up",
-    href: "/",
+    href: "/signup",
     icon: faRocket,
   },
 ];
