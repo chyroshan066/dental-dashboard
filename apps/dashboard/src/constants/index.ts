@@ -18,3 +18,4 @@ export * from "./settings";
 export * from "./profile-details";
 export * from "./social-links";
 export * from "./chats";
+export * from "./projects";

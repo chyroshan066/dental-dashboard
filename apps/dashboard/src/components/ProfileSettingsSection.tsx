@@ -1,4 +1,5 @@
 import { ProfileDetailCard } from "./Cards/ProfileDetailCard";
+import { ProjectGalleryCard } from "./Cards/ProjectGalleryCard";
 import { RecentChatsCard } from "./Cards/RecentChatsCard";
 import { SettingsToggleCard } from "./Cards/SettingsToggleCard";
 
@@ -7,5 +8,6 @@ export const ProfileSettingsSection = () => (
     <SettingsToggleCard />
     <ProfileDetailCard />
     <RecentChatsCard />
+    <ProjectGalleryCard />
   </div>
 );

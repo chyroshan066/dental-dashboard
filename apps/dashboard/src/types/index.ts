@@ -80,6 +80,8 @@ interface Value {
   value: string;
 }
 
+export interface Participant extends Id, Name, Img {}
+
 export interface Time {
   time: string;
 }
@@ -118,7 +120,7 @@ export type Notification = ImageNotification | IconNotification;
 export interface BaseLink extends Id, NavLink {}
 export interface Link extends BaseLink, Icon {}
 
-export interface ChartMetic extends Id, Icon, Color, Completion, Label {
+export interface ChartMetic extends SocialLink, Completion, Label {
   value: string;
   width: string;
 }
@@ -129,11 +131,7 @@ export interface TableHeader extends Id, ClassName {
 }
 
 export interface ProjectData extends Id, Completion, Name, Logo {
-  members: {
-    id: number;
-    name: string;
-    img: string;
-  }[];
+  members: Participant[];
   budget: string;
 }
 
@@ -180,6 +178,15 @@ export interface ProfileTab extends Label, Icon, Value {}
 export interface Setting extends Label {
   id: string;
   defaultChecked: boolean;
+}
+
+export interface ProfileDetail extends Id, Label, Value {}
+export interface SocialLink extends Id, Icon, Color {}
+export interface Chat extends Id, Name, Message, Img {}
+
+export interface Project extends Id, Img, Title, Description {
+  category: string;
+  participants: Participant[];
 }
 
 // interface Size used once in NucleoIcon

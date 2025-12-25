@@ -1,4 +1,6 @@
-export const PROFILE_DETAILS = [
+import { ProfileDetail } from "@/types";
+
+export const PROFILE_DETAILS: ProfileDetail[] = [
   {
     id: 1,
     label: "Full Name",

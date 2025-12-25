@@ -1,32 +1,34 @@
-export const CHATS = [
+import { Chat } from "@/types";
+
+export const CHATS: Chat[] = [
   {
     id: 1,
     name: "Sophie B.",
     message: "Hi! I need more information..",
-    image: "/images/random/kal-visuals-square.jpg",
+    img: "/images/random/kal-visuals-square.jpg",
   },
   {
     id: 2,
     name: "Anne Marie",
     message: "Awesome work, can you..",
-    image: "/images/random/marie.jpg",
+    img: "/images/random/marie.jpg",
   },
   {
     id: 3,
     name: "Ivanna",
     message: "About files I can..",
-    image: "/images/random/ivana-square.jpg",
+    img: "/images/random/ivana-square.jpg",
   },
   {
     id: 4,
     name: "Peterson",
     message: "Have a great afternoon..",
-    image: "/images/random/team-4.jpg",
+    img: "/images/random/team-4.jpg",
   },
   {
     id: 5,
     name: "Nick Daniel",
     message: "Hi! I need more information..",
-    image: "/images/random/team-3.jpg",
+    img: "/images/random/team-3.jpg",
   },
 ];

@@ -8,7 +8,6 @@ import {
 import { faCheck, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { memo } from "react";
-import * as Tooltip from "@radix-ui/react-tooltip";
 import { CardWrapper } from "@/components/utility/CardWrapper";
 import { CardHeaderWrapper } from "@/components/utility/CardHeaderWrapper";
 import { ArrowUp } from "@/components/utility/ArrowUp";
@@ -22,6 +21,7 @@ import {
   TData,
   THead,
 } from "@/components/utility/Table";
+import { AvatarGroup } from "@/components/utility/AvatarGroup";
 
 const DROPDOWN_ACTIONS: string[] = [
   "Action",
@@ -125,46 +125,7 @@ export const ManagementCard = memo(() => {
                         <TableAvatarCell img={data.logo} name={data.name} />
                       </TData>
                       <TData isLastRow={index === PROJECTS_DATA.length - 1}>
-                        <Tooltip.Provider
-                          delayDuration={100} // It determines how long the mouse must rest on an element before the tooltip reveals itself. Radix usually defaults this to 700ms.
-                          skipDelayDuration={500} // It controls how much time can pass between leaving one tooltip and entering another before the delayDuration is applied again.
-                        >
-                          <div className="mt-2 avatar-group">
-                            {data.members.map((member) => (
-                              <Tooltip.Root key={member.id}>
-                                {/* "asChild" prop on "Tooltip.Trigger" ensures we don't wrap our <a> tag in an extra <span> or <div> */}
-                                <Tooltip.Trigger asChild>
-                                  <a
-                                    href="javascript:;"
-                                    className={`relative z-20 inline-flex items-center justify-center w-6 h-6 text-xs text-white transition-all duration-200 border-2 border-white border-solid rounded-full ease-soft-in-out hover:z-30 ${
-                                      member.id !== 1 ? "-ml-4" : ""
-                                    }`}
-                                    data-target="tooltip_trigger"
-                                    data-placement="bottom"
-                                  >
-                                    <img
-                                      src={member.img}
-                                      className="w-full rounded-full"
-                                      alt={member.name}
-                                    />
-                                  </a>
-                                </Tooltip.Trigger>
-
-                                {/* "Tooltip.Portal" physically moves the tooltip div to the body tag when it renders */}
-                                <Tooltip.Portal>
-                                  <Tooltip.Content
-                                    className="z-50 px-2 py-1 text-sm text-white bg-black rounded-lg shadow-soft-lg animate-fade-in-up"
-                                    sideOffset={5}
-                                    side="bottom"
-                                  >
-                                    {member.name}
-                                    <Tooltip.Arrow className="fill-black" />
-                                  </Tooltip.Content>
-                                </Tooltip.Portal>
-                              </Tooltip.Root>
-                            ))}
-                          </div>
-                        </Tooltip.Provider>
+                        <AvatarGroup participants={data.members} />
                       </TData>
                       <TData
                         isLastRow={index === PROJECTS_DATA.length - 1}

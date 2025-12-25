@@ -1,10 +1,11 @@
+import { SocialLink } from "@/types";
 import {
   faFacebook,
   faInstagram,
   faTwitter,
 } from "@fortawesome/free-brands-svg-icons";
 
-export const SOCIAL_LINKS = [
+export const SOCIAL_LINKS: SocialLink[] = [
   {
     id: 1,
     icon: faFacebook,

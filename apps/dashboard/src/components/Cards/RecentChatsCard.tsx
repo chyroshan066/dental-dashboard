@@ -21,7 +21,7 @@ export const RecentChatsCard = () => (
           >
             <div className="inline-flex items-center justify-center w-12 h-12 mr-4 text-white transition-all duration-200 text-base ease-soft-in-out rounded-xl">
               <Image
-                src={chat.image}
+                src={chat.img}
                 width={48}
                 height={48}
                 alt="kal"
