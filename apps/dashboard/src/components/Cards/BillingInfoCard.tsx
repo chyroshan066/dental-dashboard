@@ -1,7 +1,7 @@
 import { CardWrapper } from "../utility/CardWrapper";
 import { faPencilAlt, faTrashAlt } from "@fortawesome/free-solid-svg-icons";
 import { BILLING_DETAILS } from "@/constants";
-import { IconButton } from "../utility/Button/IconButton";
+import { IconButton } from "../utility/Button";
 import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
 
 export const BillingInfoCard = () => (

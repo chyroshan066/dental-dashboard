@@ -1,4 +1,5 @@
 import { openSans } from "@/app/fonts";
+import { Footer } from "@/components/Footer";
 import { Children } from "@/types";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
 import type { Metadata } from "next";
@@ -49,7 +50,10 @@ export default function AuthLayout({ children }: Readonly<Children>) {
       className={`${openSans.variable} m-0 font-sans antialiased font-normal bg-white text-start text-base leading-default text-slate-500`}
       suppressHydrationWarning={true}
     >
-      {children}
+      <main className="mt-0 transition-all duration-200 ease-soft-in-out">
+        {children}
+        <Footer />
+      </main>
       <AnalyticsWrapper />
     </body>
   );

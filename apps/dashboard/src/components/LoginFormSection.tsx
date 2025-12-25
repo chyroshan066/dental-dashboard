@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { CardHeaderWrapper } from "./utility/CardHeaderWrapper";
 import { Checkbox } from "./utility/Checkbox";
+import { Button } from "./utility/Button";
 
 export const LoginFormSection = () => (
   <section>
@@ -41,7 +42,7 @@ export const LoginFormSection = () => (
                       aria-describedby="password-addon"
                     />
                   </div>
-                  <div className="min-h-6 mb-0.5 block pl-12">
+                  <div className="min-h-6 mb-0.5 block">
                     <Checkbox id="rememberMe" defaultChecked={false} />
                     <label
                       className="mb-2 ml-1 font-normal cursor-pointer select-none text-sm text-slate-700"
@@ -51,18 +52,24 @@ export const LoginFormSection = () => (
                     </label>
                   </div>
                   <div className="text-center">
-                    <button
+                    {/* <button
                       type="button"
                       className="inline-block w-full px-6 py-3 mt-6 mb-0 font-bold text-center text-white uppercase align-middle transition-all bg-transparent border-0 rounded-lg cursor-pointer shadow-soft-md bg-x-25 bg-150 leading-pro text-xs ease-soft-in tracking-tight-soft bg-gradient-soft-blue600-cyan400 hover:scale-102 hover:shadow-soft-xs active:opacity-85"
                     >
                       Sign in
-                    </button>
+                    </button> */}
+                    <Button
+                      variant="gradient"
+                      className="w-full mb-0 border-0 mt-6"
+                      backgroundColor="bg-gradient-soft-blue600-cyan400"
+                      btnText="Sign in"
+                    />
                   </div>
                 </form>
               </div>
               <div className="p-6 px-1 pt-0 text-center bg-transparent border-t-0 border-t-solid rounded-b-2xl lg:px-2">
                 <p className="mx-auto mb-6 leading-normal text-sm">
-                  Don't have an account?
+                  Don't have an account?&nbsp;
                   <Link
                     href="/register"
                     className="relative z-10 font-semibold text-transparent bg-gradient-soft-blue600-cyan400 bg-clip-text"

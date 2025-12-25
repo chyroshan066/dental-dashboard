@@ -4,6 +4,7 @@ import { CardWrapper } from "../utility/CardWrapper";
 import Link from "next/link";
 import { PAYMENT_METHODS } from "@/constants";
 import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
+import { Button } from "../utility/Button";
 
 export const PaymentMethodCard = () => (
   <CardWrapper
@@ -20,13 +21,12 @@ export const PaymentMethodCard = () => (
           <h6 className="mb-0">Payment Method</h6>
         </div>
         <div className="flex-none w-1/2 max-w-full px-3 text-right">
-          <Link
-            className="inline-block px-6 py-3 font-bold text-center text-white uppercase align-middle transition-all bg-transparent rounded-lg cursor-pointer leading-pro text-xs ease-soft-in shadow-soft-md bg-150 bg-gradient-soft-gray900-slate800 hover:shadow-soft-xs active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25"
-            href="#"
-          >
-            <FontAwesomeIcon icon={faPlus} />
-            &nbsp;&nbsp;Add New Card
-          </Link>
+          <Button
+            variant="gradient"
+            backgroundColor="bg-gradient-soft-gray900-slate800"
+            icon={faPlus}
+            btnText="Add New Card"
+          />
         </div>
       </div>
     </CardHeaderWrapper>
