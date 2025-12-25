@@ -1,8 +1,8 @@
 import { CardWrapper } from "../utility/CardWrapper";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
 import { INVOCIES } from "@/constants";
-import { IconButton } from "../utility/Button/IconButton";
 import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
+import { Button, IconButton } from "../utility/Button";
 
 export const InvoiceCard = () => (
   <CardWrapper
@@ -18,9 +18,10 @@ export const InvoiceCard = () => (
           <h6 className="mb-0">Invoices</h6>
         </div>
         <div className="flex-none w-1/2 max-w-full px-3 text-right">
-          <button className="inline-block px-8 py-2 mb-0 font-bold text-center uppercase align-middle transition-all bg-transparent border border-solid rounded-lg shadow-none cursor-pointer leading-pro ease-soft-in text-xs bg-150 active:opacity-85 hover:scale-102 tracking-tight-soft bg-x-25 border-fuchsia-500 text-fuchsia-500 hover:opacity-75">
-            View All
-          </button>
+          <Button
+            className="bg-150 active:opacity-85 bg-x-25"
+            btnText="View All"
+          />
         </div>
       </div>
     </CardHeaderWrapper>

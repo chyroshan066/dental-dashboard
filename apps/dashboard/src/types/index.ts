@@ -197,3 +197,4 @@ export interface Project extends Id, Img, Title, Description {
 // interface backgroundColor used once in IconButton
 // interface textColor used once in IconButton
 // interface leading used once in IconButton
+// interface btnText used once in Button
