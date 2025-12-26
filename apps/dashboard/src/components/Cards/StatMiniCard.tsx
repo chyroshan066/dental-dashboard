@@ -1,7 +1,7 @@
-import { PAYMENT_STATS } from "@/constants";
+import { PAYMENT_STATS } from "@/lib/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardWrapper } from "../utility/CardWrapper";
-import { Separator } from "../utility/Separator";
+import { CardWrapper } from "../ui/card/Card";
+import { Separator } from "../ui/Separator";
 
 export const StatMiniCard = () => (
   <>

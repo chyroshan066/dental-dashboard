@@ -5,11 +5,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import Link from "next/link";
 import { memo, useEffect } from "react";
-import { PerfectScrollbarComponent } from "./utility/PerfectScrollbarComponent";
 import { usePathname } from "next/navigation";
-import { ACCOUNT_PAGES, NAVLINKS } from "@/constants";
+import { ACCOUNT_PAGES, NAVLINKS } from "@/lib/constants";
 import { useDisclosure } from "@/hooks/useDisclosure";
-import { Separator } from "./utility/Separator";
+import { ScrollArea } from "@/components/ui/ScrollArea";
+import { Separator } from "@/components/ui/Separator";
+import { NavItem } from "./NavItem";
 
 export const SideNav = memo(() => {
   const { isOpen, toggle, close, contentRef } = useDisclosure(false);
@@ -27,7 +28,7 @@ export const SideNav = memo(() => {
         isOpen ? "translate-x-0 shadow-soft-xl" : "-translate-x-full"
       }`}
     >
-      <PerfectScrollbarComponent
+      <ScrollArea
         className="h-full w-full relative flex flex-col overflow-hidden rounded-2xl z-40"
         options={{
           wheelSpeed: 0.5,
@@ -71,33 +72,17 @@ export const SideNav = memo(() => {
 
         {/* SCROLLABLE LIST - This section is the primary scrollable content */}
         <ul className="flex flex-col pl-0 mb-auto pb-4">
-          {NAVLINKS.map((link, index) => {
+          {NAVLINKS.map((link) => {
             const isActive = pathname === link.href;
 
             return (
-              <li key={index} className="mt-0.5 w-full">
-                <Link
-                  className={`py-2.7 text-sm ease-nav-brand my-0 mx-4 flex items-center whitespace-nowrap px-4 transition-colors ${
-                    isActive &&
-                    "shadow-soft-xl rounded-lg bg-white font-semibold text-slate-700"
-                  }`}
-                  href={link.href}
-                >
-                  <div
-                    className={`shadow-soft-2xl mr-2 flex h-8 w-8 items-center justify-center rounded-lg bg-white bg-center stroke-0 text-center xl:p-2.5 ${
-                      isActive && "bg-gradient-soft-purple700-pink500"
-                    }`}
-                  >
-                    <FontAwesomeIcon
-                      icon={link.icon}
-                      className={isActive ? "text-white" : ""}
-                    />
-                  </div>
-                  <span className="ml-1 duration-300 opacity-100 pointer-events-none ease-soft">
-                    {link.name}
-                  </span>
-                </Link>
-              </li>
+              <NavItem
+                key={link.id}
+                isActive={isActive}
+                href={link.href}
+                name={link.name}
+                icon={link.icon}
+              />
             );
           })}
 
@@ -169,7 +154,7 @@ export const SideNav = memo(() => {
             </div>
           </div>
         </div>
-      </PerfectScrollbarComponent>
+      </ScrollArea>
     </aside>
   );
 });

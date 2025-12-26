@@ -6,11 +6,11 @@ import {
   IconDefinition,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardWrapper } from "../utility/CardWrapper";
-import { TRANSACTION_GROUPS } from "@/constants";
+import { CardWrapper } from "../ui/card/Card";
+import { TRANSACTION_GROUPS } from "@/lib/constants";
 import { TransactionType } from "@/types";
 import React from "react";
-import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
+import { CardHeaderWrapper } from "../ui/card/CardHeader";
 
 const transactionConfigs: Record<
   TransactionType,

@@ -1,8 +1,8 @@
 import type { Metadata, Viewport } from "next";
 // import "@/styles/soft-ui-dashboard-tailwind.css";
-import "@/styles/nucleo-icons/nucleo-icons.css";
-import "@/styles/nucleo-icons/nucleo-svg.css";
-import "./globals.css";
+// import "@/styles/nucleo-icons/nucleo-icons.css";
+// import "@/styles/nucleo-icons/nucleo-svg.css";
+import "@/styles/globals.css";
 import { Children } from "@/types";
 
 export const metadata: Metadata = {

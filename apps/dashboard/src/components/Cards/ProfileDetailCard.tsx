@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
-import { CardWrapper } from "../utility/CardWrapper";
+import { CardHeaderWrapper } from "../ui/card/CardHeader";
+import { CardWrapper } from "../ui/card/Card";
 import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
 import * as Tooltip from "@radix-ui/react-tooltip";
-import { Separator } from "../utility/Separator";
-import { PROFILE_DETAILS } from "@/constants";
-import { SOCIAL_LINKS } from "@/constants";
+import { Separator } from "../ui/Separator";
+import { PROFILE_DETAILS } from "@/lib/constants";
+import { SOCIAL_LINKS } from "@/lib/constants";
 
 export const ProfileDetailCard = () => (
   <CardWrapper

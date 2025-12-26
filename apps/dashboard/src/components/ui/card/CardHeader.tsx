@@ -6,7 +6,7 @@ interface CardHeaderWrapperProps
     PaddingSize,
     BackgroundColor {}
 
-export const CardHeaderWrapper = ({
+export const CardHeader = ({
   children,
   className,
   paddingSize = 6,

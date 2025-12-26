@@ -1,13 +1,13 @@
-import { ArrowUp } from "@/components/utility/ArrowUp";
-import { CardHeaderWrapper } from "@/components/utility/CardHeaderWrapper";
-import { CardWrapper } from "@/components/utility/CardWrapper";
-import { CHART_METRICS } from "@/constants";
+import { ArrowUp } from "@/components/ui/ArrowUp";
+import { Card } from "@/components/ui/card/Card";
+import { CardHeader } from "@/components/ui/card/CardHeader";
+import { CHART_METRICS } from "@/lib/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { memo } from "react";
 
 export const ChartCard = memo(() => (
   <>
-    <CardWrapper
+    <Card
       outerDivClassName="mb-6 lg:mb-0 lg:w-5/12 mt-0 lg:flex-none"
       innerDivClassName="z-20 border-black/12.5 shadow-soft-xl bg-white"
     >
@@ -56,22 +56,22 @@ export const ChartCard = memo(() => (
           </div>
         </div>
       </div>
-    </CardWrapper>
+    </Card>
 
-    <CardWrapper
+    <Card
       outerDivClassName="lg:w-7/12 mt-0 lg:flex-none"
       innerDivClassName="z-20 border-black/12.5 shadow-soft-xl bg-white"
     >
-      <CardHeaderWrapper className="border-black/12.5 border-solid">
+      <CardHeader className="border-black/12.5 border-solid">
         <h6>Sales overview</h6>
         <ArrowUp percentage="4% more" time="in 2021" />
-      </CardHeaderWrapper>
+      </CardHeader>
       <div className="flex-auto p-4">
         <div>
           <canvas id="chart-line" height="300" />
         </div>
       </div>
-    </CardWrapper>
+    </Card>
   </>
 ));
 

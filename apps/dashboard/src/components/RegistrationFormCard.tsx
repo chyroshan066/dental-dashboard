@@ -1,9 +1,9 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardWrapper } from "./utility/CardWrapper";
 import { faApple, faFacebookF } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 import { Children, ClassName, Icon, IconClass, Id } from "@/types";
-import { Button } from "./utility/Button";
+import { Button } from "./ui/Button";
+import { Card } from "./ui/card/Card";
 
 interface SocialLoginButtonProps extends Children, ClassName {}
 
@@ -39,7 +39,7 @@ const SocialLoginButton = ({ children, className }: SocialLoginButtonProps) => (
 export const RegistrationFormCard = () => (
   <div className="container">
     <div className="flex flex-wrap -mx-3 -mt-48 md:-mt-56 lg:-mt-48">
-      <CardWrapper
+      <Card
         outerDivClassName="mx-auto mt-0 md:flex-0 shrink-0 md:w-7/12 lg:w-5/12 xl:w-4/12"
         innerDivClassName="z-0 bg-white shadow-soft-xl"
       >
@@ -159,7 +159,7 @@ export const RegistrationFormCard = () => (
             </p>
           </form>
         </div>
-      </CardWrapper>
+      </Card>
     </div>
   </div>
 );

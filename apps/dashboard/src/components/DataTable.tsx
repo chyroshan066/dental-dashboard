@@ -3,11 +3,11 @@ import {
   AUTHORS_DATA,
   PROJECT_TABLE_HEADERS_2,
   PROJECTS_DATA_2,
-} from "@/constants";
+} from "@/lib/constants";
 import { memo } from "react";
-import { CardWrapper } from "./utility/CardWrapper";
-import { CardHeaderWrapper } from "./utility/CardHeaderWrapper";
-import { PerfectScrollbarComponent } from "./utility/PerfectScrollbarComponent";
+import { CardWrapper } from "./ui/card/Card";
+import { CardHeaderWrapper } from "./ui/card/CardHeader";
+import { PerfectScrollbarComponent } from "./ui/ScrollArea";
 import { Caption, Table, TableAvatarCell, TData, THead } from "./utility/Table";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";

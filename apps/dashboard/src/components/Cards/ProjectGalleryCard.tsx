@@ -1,10 +1,10 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardWrapper } from "../utility/CardWrapper";
+import { CardWrapper } from "../ui/card/Card";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { PROJECTS } from "@/constants";
-import { AvatarGroup } from "../utility/AvatarGroup";
+import { PROJECTS } from "@/lib/constants";
+import { AvatarGroup } from "../ui/AvatarGroup";
 import Image from "next/image";
-import { Button } from "../utility/Button";
+import { Button } from "../ui/Button";
 import Link from "next/link";
 import { Children, ClassName } from "@/types";
 

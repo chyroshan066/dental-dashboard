@@ -1,7 +1,7 @@
 import Link from "next/link";
-import { CardHeaderWrapper } from "./utility/CardHeaderWrapper";
-import { Checkbox } from "./utility/Checkbox";
-import { Button } from "./utility/Button";
+import { CardHeaderWrapper } from "./ui/card/CardHeader";
+import { Checkbox } from "./ui/form/Checkbox";
+import { Button } from "./ui/Button";
 
 export const LoginFormSection = () => (
   <section>

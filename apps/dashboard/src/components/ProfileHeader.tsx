@@ -1,6 +1,6 @@
 "use client";
 
-import { PROFILE_TABS } from "@/constants";
+import { PROFILE_TABS } from "@/lib/constants";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
 import { useEffect, useRef, useState } from "react";

@@ -1,7 +1,7 @@
-import { ProfileDetailCard } from "./Cards/ProfileDetailCard";
-import { ProjectGalleryCard } from "./Cards/ProjectGalleryCard";
-import { RecentChatsCard } from "./Cards/RecentChatsCard";
-import { SettingsToggleCard } from "./Cards/SettingsToggleCard";
+import { ProfileDetailCard } from "./cards/ProfileDetailCard";
+import { ProjectGalleryCard } from "./cards/ProjectGalleryCard";
+import { RecentChatsCard } from "./cards/RecentChatsCard";
+import { SettingsToggleCard } from "./cards/SettingsToggleCard";
 
 export const ProfileSettingsSection = () => (
   <div className="flex flex-wrap -mx-3">

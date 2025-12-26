@@ -1,5 +1,5 @@
 import { openSans } from "@/app/fonts";
-import { SideNav } from "@/components/SideNav";
+import { SideNav } from "@/components/layout/SideNav/SideNav";
 import { Children } from "@/types";
 import AnalyticsWrapper from "@/utils/AnalyticsWrapper";
 import type { Metadata } from "next";

@@ -1,8 +1,8 @@
-import { CHATS } from "@/constants";
-import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
-import { CardWrapper } from "../utility/CardWrapper";
+import { CHATS } from "@/lib/constants";
+import { CardHeaderWrapper } from "../ui/card/CardHeader";
+import { CardWrapper } from "../ui/card/Card";
 import Image from "next/image";
-import { IconButton } from "../utility/Button/IconButton";
+import { IconButton } from "../ui/Button/IconButton";
 
 export const RecentChatsCard = () => (
   <CardWrapper

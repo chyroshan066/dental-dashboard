@@ -1,6 +1,6 @@
 import { faWifi } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardWrapper } from "../utility/CardWrapper";
+import { CardWrapper } from "../ui/card/Card";
 
 export const CreditCard = () => (
   <CardWrapper

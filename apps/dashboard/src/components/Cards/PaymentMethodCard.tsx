@@ -1,10 +1,10 @@
 import { faPencilAlt, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardWrapper } from "../utility/CardWrapper";
+import { CardWrapper } from "../ui/card/Card";
 import Link from "next/link";
-import { PAYMENT_METHODS } from "@/constants";
-import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
-import { Button } from "../utility/Button";
+import { PAYMENT_METHODS } from "@/lib/constants";
+import { CardHeaderWrapper } from "../ui/card/CardHeader";
+import { Button } from "../ui/Button";
 
 export const PaymentMethodCard = () => (
   <CardWrapper

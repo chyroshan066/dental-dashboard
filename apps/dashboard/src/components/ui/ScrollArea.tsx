@@ -1,10 +1,10 @@
-'use client';
+"use client";
 
-import { useEffect, useRef } from 'react';
-import PerfectScrollbarLib from 'perfect-scrollbar';
-import 'perfect-scrollbar/css/perfect-scrollbar.css';
+import { useEffect, useRef } from "react";
+import PerfectScrollbarLib from "perfect-scrollbar";
+import "perfect-scrollbar/css/perfect-scrollbar.css";
 
-interface PerfectScrollbarComponentProps {
+interface ScrollAreaProps {
   children: React.ReactNode;
   className?: string;
   options?: Partial<{
@@ -27,45 +27,43 @@ interface PerfectScrollbarComponentProps {
 // 1. Define the correct Instance Type by intersecting the base type with a fix
 // We use Omit/Pick or interface merging techniques to correct the destroy signature.
 // Here we use Omit to remove the existing destroy, and add a new one without arguments.
-type PerfectScrollbarInstance = Omit<PerfectScrollbar, 'destroy'> & {
+type ScrollAreaInstance = Omit<PerfectScrollbar, "destroy"> & {
   destroy: () => void; // CORRECTED: destroy takes no arguments at runtime
   // Ensure the update method is also included, though it's likely fine
   update: () => void;
 };
 
-
 // 2. The Constructor Interface remains correct from the previous fix
-interface PerfectScrollbarConstructor {
-  new(
+interface ScrollAreaConstructor {
+  new (
     element: HTMLElement,
-    options?: PerfectScrollbarComponentProps['options']
-  ): PerfectScrollbarInstance; // Use the corrected instance type here
+    options?: ScrollAreaProps["options"]
+  ): ScrollAreaInstance; // Use the corrected instance type here
 }
 
-
-export const PerfectScrollbarComponent = ({
+export const ScrollArea = ({
   children,
-  className = '',
+  className = "",
   options = {},
-  style = {}
-}: PerfectScrollbarComponentProps) => {
+  style = {},
+}: ScrollAreaProps) => {
   const containerRef = useRef<HTMLDivElement>(null);
 
   // Use the corrected instance type
-  const psRef = useRef<PerfectScrollbarInstance | null>(null);
+  const psRef = useRef<ScrollAreaInstance | null>(null);
 
   useEffect(() => {
     if (containerRef.current) {
-
       // Cast the imported value to the explicit constructor interface
-      const PsConstructor = PerfectScrollbarLib as unknown as PerfectScrollbarConstructor;
+      const PsConstructor =
+        PerfectScrollbarLib as unknown as ScrollAreaConstructor;
 
-      // Initialize Perfect Scrollbar 
+      // Initialize Perfect Scrollbar
       psRef.current = new PsConstructor(containerRef.current, {
         wheelSpeed: 2,
         wheelPropagation: false,
         minScrollbarLength: 20,
-        ...options
+        ...options,
       });
 
       // Cleanup on unmount
@@ -90,7 +88,7 @@ export const PerfectScrollbarComponent = ({
     <div
       ref={containerRef}
       className={`perfect-scrollbar-container ${className}`}
-      style={{ position: 'relative', ...style }}
+      style={{ position: "relative", ...style }}
     >
       {children}
     </div>

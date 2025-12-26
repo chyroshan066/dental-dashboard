@@ -1,9 +1,9 @@
-import { BillingInfoCard } from "./Cards/BillingInfoCard";
-import { CreditCard } from "./Cards/CreditCard";
-import { InvoiceCard } from "./Cards/InvoiceCard";
-import { PaymentMethodCard } from "./Cards/PaymentMethodCard";
-import { StatMiniCard } from "./Cards/StatMiniCard";
-import { TransactionCard } from "./Cards/TransactionCard";
+import { BillingInfoCard } from "./cards/BillingInfoCard";
+import { CreditCard } from "./cards/CreditCard";
+import { InvoiceCard } from "./cards/InvoiceCard";
+import { PaymentMethodCard } from "./cards/PaymentMethodCard";
+import { StatMiniCard } from "./cards/StatMiniCard";
+import { TransactionCard } from "./cards/TransactionCard";
 
 export const Billing = () => (
   <>

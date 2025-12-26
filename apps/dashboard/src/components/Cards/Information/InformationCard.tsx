@@ -1,4 +1,4 @@
-import { ReadMore } from "@/components/utility/ReadMore";
+import { ReadMore } from "@/components/ui/ReadMore";
 import Image from "next/image";
 
 export const InformationCard = () => (

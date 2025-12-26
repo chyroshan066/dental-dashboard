@@ -56,7 +56,7 @@ export interface Img {
   img: string;
 }
 
-interface Href {
+export interface Href {
   href: string;
 }
 
@@ -208,3 +208,4 @@ export interface Project extends Id, Img, Title, Description {
 // interface leading used once in IconButton
 // interface btnText used once in Button
 // interface containerClass used once in RegistrationFormCard
+// interface isActive used once in NavItem

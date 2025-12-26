@@ -4,7 +4,7 @@ import {
   AUTH_FOOTER_LINKS,
   FOOTER_LINKS,
   FOOTER_SOCIAL_LINKS,
-} from "@/constants";
+} from "@/lib/constants";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";

@@ -4,15 +4,12 @@ import {
   PROJECT_TABLE_HEADERS,
   PROJECTS_DATA,
   TIMELINE_DATA,
-} from "@/constants";
+} from "@/lib/constants";
 import { faCheck, faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { memo } from "react";
-import { CardWrapper } from "@/components/utility/CardWrapper";
-import { CardHeaderWrapper } from "@/components/utility/CardHeaderWrapper";
-import { ArrowUp } from "@/components/utility/ArrowUp";
+import { ArrowUp } from "@/components/ui/ArrowUp";
 import Link from "next/link";
-import { PerfectScrollbarComponent } from "@/components/utility/PerfectScrollbarComponent";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import {
   Caption,
@@ -21,7 +18,10 @@ import {
   TData,
   THead,
 } from "@/components/utility/Table";
-import { AvatarGroup } from "@/components/utility/AvatarGroup";
+import { AvatarGroup } from "@/components/ui/AvatarGroup";
+import { Card } from "@/components/ui/card/Card";
+import { CardHeader } from "@/components/ui/card/CardHeader";
+import { ScrollArea } from "@/components/ui/ScrollArea";
 
 const DROPDOWN_ACTIONS: string[] = [
   "Action",
@@ -40,11 +40,11 @@ export const ManagementCard = memo(() => {
   return (
     <>
       {/* Card 1 */}
-      <CardWrapper
+      <Card
         outerDivClassName="mb-6 md:mb-0 md:w-1/2 md:flex-none lg:w-2/3 mt-0 lg:flex-none"
         innerDivClassName="border-black/12.5 shadow-soft-xl bg-white"
       >
-        <CardHeaderWrapper className="border-black/12.5 border-solid mb-4">
+        <CardHeader className="border-black/12.5 border-solid mb-4">
           <div className="flex flex-wrap mt-0 -mx-3">
             <div className="flex-none w-7/12 max-w-full px-3 mt-0 lg:w-1/2 lg:flex-none">
               <h6>Projects</h6>
@@ -94,9 +94,9 @@ export const ManagementCard = memo(() => {
               </div>
             </div>
           </div>
-        </CardHeaderWrapper>
+        </CardHeader>
         <div className="flex-auto px-0 pt-0 pb-2">
-          <PerfectScrollbarComponent
+          <ScrollArea
             className="management-table-ps relative overflow-hidden touch-pan-y" // "touch-pan-y" allows the PAGE to scroll vertically when we drag our finger on the table.
             options={{
               suppressScrollY: true, // Only horizontal for the table
@@ -157,19 +157,19 @@ export const ManagementCard = memo(() => {
                 </tbody>
               </Table>
             </div>
-          </PerfectScrollbarComponent>
+          </ScrollArea>
         </div>
-      </CardWrapper>
+      </Card>
 
       {/* Card 2 */}
-      <CardWrapper
+      <Card
         outerDivClassName="md:w-1/2 md:flex-none lg:w-1/3 lg:flex-none"
         innerDivClassName="h-full border-black/12.5 shadow-soft-xl bg-white"
       >
-        <CardHeaderWrapper className="border-black/12.5 border-solid">
+        <CardHeader className="border-black/12.5 border-solid">
           <h6>Orders overview</h6>
           <ArrowUp percentage="24%" time="this month" />
-        </CardHeaderWrapper>
+        </CardHeader>
         <div className="flex-auto p-4">
           <div className="before:border-r-solid relative before:absolute before:top-0 before:left-4 before:h-full before:border-r-2 before:border-r-slate-300 before:content-[''] before:lg:-ml-px">
             {TIMELINE_DATA.map((data) => (
@@ -196,7 +196,7 @@ export const ManagementCard = memo(() => {
             ))}
           </div>
         </div>
-      </CardWrapper>
+      </Card>
     </>
   );
 });

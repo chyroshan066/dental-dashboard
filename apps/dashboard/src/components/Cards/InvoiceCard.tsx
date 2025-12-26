@@ -1,8 +1,8 @@
-import { CardWrapper } from "../utility/CardWrapper";
+import { CardWrapper } from "../ui/card/Card";
 import { faFilePdf } from "@fortawesome/free-solid-svg-icons";
-import { INVOCIES } from "@/constants";
-import { CardHeaderWrapper } from "../utility/CardHeaderWrapper";
-import { Button, IconButton } from "../utility/Button";
+import { INVOCIES } from "@/lib/constants";
+import { CardHeaderWrapper } from "../ui/card/CardHeader";
+import { Button, IconButton } from "../ui/Button";
 
 export const InvoiceCard = () => (
   <CardWrapper
@@ -46,7 +46,7 @@ export const InvoiceCard = () => (
                 textSize="sm"
                 icon={faFilePdf}
                 label="PDF"
-                iconClassName="text-lg"
+                iconClass="text-lg"
               />
             </div>
           </li>

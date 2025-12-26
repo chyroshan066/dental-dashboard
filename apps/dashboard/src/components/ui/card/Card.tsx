@@ -6,7 +6,7 @@ interface CardWrapperProps extends Children {
   isWidthFull?: boolean;
 }
 
-export const CardWrapper = ({
+export const Card = ({
   children,
   outerDivClassName,
   innerDivClassName,

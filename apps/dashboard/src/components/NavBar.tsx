@@ -1,6 +1,6 @@
 "use client";
 
-import { ACCOUNT_PAGES, NAVLINKS, NOTIFICATIONS } from "@/constants";
+import { ACCOUNT_PAGES, NAVLINKS, NOTIFICATIONS } from "@/lib/constants";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import { Notification } from "@/types";
 import {
