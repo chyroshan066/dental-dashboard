@@ -1,7 +1,7 @@
 import { NavBar } from "@/components/layout/NavBar/NavBar";
-import { DataTable } from "@/components/DataTable";
 import { Footer } from "@/components/layout/Footer";
 import { Main } from "@/components/layout/Main";
+import { DataTable } from "@/components/features/tables/DataTable";
 
 export default function Tables() {
   return (
