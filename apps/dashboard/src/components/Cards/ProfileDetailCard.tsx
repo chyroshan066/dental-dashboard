@@ -1,18 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardHeaderWrapper } from "../ui/card/CardHeader";
-import { CardWrapper } from "../ui/card/Card";
 import { faUserEdit } from "@fortawesome/free-solid-svg-icons";
 import * as Tooltip from "@radix-ui/react-tooltip";
 import { Separator } from "../ui/Separator";
 import { PROFILE_DETAILS } from "@/lib/constants";
 import { SOCIAL_LINKS } from "@/lib/constants";
+import { Card } from "../ui/card/Card";
+import { CardHeader } from "../ui/card/CardHeader";
 
 export const ProfileDetailCard = () => (
-  <CardWrapper
+  <Card
     outerDivClassName="lg-max:mt-6 xl:w-4/12"
     innerDivClassName="h-full bg-white shadow-soft-xl"
   >
-    <CardHeaderWrapper paddingSize={4}>
+    <CardHeader paddingSize={4}>
       <div className="flex flex-wrap items-center -mx-3">
         <div className="flex items-center w-8/12 max-w-full px-3 shrink-0 md:flex-none">
           <h6 className="mb-0">Profile Information</h6>
@@ -45,7 +45,7 @@ export const ProfileDetailCard = () => (
           </Tooltip.Provider>
         </div>
       </div>
-    </CardHeaderWrapper>
+    </CardHeader>
     <div className="flex-auto p-4">
       <p className="leading-normal text-sm">
         Hi, I&apos;m Alec Thompson, Decisions: If you can&apos;t decide, the
@@ -82,5 +82,5 @@ export const ProfileDetailCard = () => (
         </li>
       </ul>
     </div>
-  </CardWrapper>
+  </Card>
 );

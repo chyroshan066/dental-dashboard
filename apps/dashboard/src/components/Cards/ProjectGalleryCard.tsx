@@ -1,5 +1,4 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { CardWrapper } from "../ui/card/Card";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
 import { PROJECTS } from "@/lib/constants";
 import { AvatarGroup } from "../ui/AvatarGroup";
@@ -7,6 +6,7 @@ import Image from "next/image";
 import { Button } from "../ui/Button";
 import Link from "next/link";
 import { Children, ClassName } from "@/types";
+import { Card } from "../ui/card/Card";
 
 interface ProjectCardColumnProps extends Children, ClassName {}
 
@@ -21,7 +21,7 @@ const ProjectCardColumn = ({ children, className }: ProjectCardColumnProps) => (
 );
 
 export const ProjectGalleryCard = () => (
-  <CardWrapper
+  <Card
     outerDivClassName="flex-none mt-6"
     innerDivClassName="mb-6 bg-white shadow-soft-xl"
   >
@@ -78,5 +78,5 @@ export const ProjectGalleryCard = () => (
         </ProjectCardColumn>
       </div>
     </div>
-  </CardWrapper>
+  </Card>
 );

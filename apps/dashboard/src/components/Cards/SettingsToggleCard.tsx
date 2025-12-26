@@ -1,9 +1,9 @@
 import { ACCOUNT_SETTINGS, APPLICATION_SETTINGS } from "@/lib/constants";
-import { CardHeaderWrapper } from "../ui/card/CardHeader";
-import { CardWrapper } from "../ui/card/Card";
 import React from "react";
 import { Setting } from "@/types";
 import { Checkbox } from "../ui/form/Checkbox";
+import { Card } from "../ui/card/Card";
+import { CardHeader } from "../ui/card/CardHeader";
 
 interface MergedSetting {
   category: string;
@@ -22,13 +22,13 @@ const MERGED_SETTINGS: MergedSetting[] = [
 ];
 
 export const SettingsToggleCard = () => (
-  <CardWrapper
+  <Card
     outerDivClassName="xl:w-4/12"
     innerDivClassName="h-full bg-white shadow-soft-xl"
   >
-    <CardHeaderWrapper paddingSize={4}>
+    <CardHeader paddingSize={4}>
       <h6 className="mb-0">Platform Settings</h6>
-    </CardHeaderWrapper>
+    </CardHeader>
     <div className="flex-auto p-4">
       {MERGED_SETTINGS.map((group) => (
         <React.Fragment key={group.category}>
@@ -59,5 +59,5 @@ export const SettingsToggleCard = () => (
         </React.Fragment>
       ))}
     </div>
-  </CardWrapper>
+  </Card>
 );

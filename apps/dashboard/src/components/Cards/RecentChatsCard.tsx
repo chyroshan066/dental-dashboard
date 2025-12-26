@@ -1,17 +1,17 @@
 import { CHATS } from "@/lib/constants";
-import { CardHeaderWrapper } from "../ui/card/CardHeader";
-import { CardWrapper } from "../ui/card/Card";
 import Image from "next/image";
 import { IconButton } from "../ui/Button/IconButton";
+import { Card } from "../ui/card/Card";
+import { CardHeader } from "../ui/card/CardHeader";
 
 export const RecentChatsCard = () => (
-  <CardWrapper
+  <Card
     outerDivClassName="lg-max:mt-6 xl:w-4/12"
     innerDivClassName="h-full bg-white shadow-soft-xl"
   >
-    <CardHeaderWrapper paddingSize={4}>
+    <CardHeader paddingSize={4}>
       <h6 className="mb-0">Conversations</h6>
-    </CardHeaderWrapper>
+    </CardHeader>
     <div className="flex-auto p-4">
       <ul className="flex flex-col pl-0 mb-0 rounded-lg">
         {CHATS.map((chat) => (
@@ -43,5 +43,5 @@ export const RecentChatsCard = () => (
         ))}
       </ul>
     </div>
-  </CardWrapper>
+  </Card>
 );
