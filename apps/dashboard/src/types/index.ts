@@ -112,6 +112,10 @@ export interface DefaultChecked {
   defaultChecked: boolean;
 }
 
+export interface IconClass {
+  iconClass?: string;
+}
+
 interface BaseNotification extends Id, Href, Title, Message, Time {}
 
 interface ImageNotification extends BaseNotification {
@@ -200,7 +204,7 @@ export interface Project extends Id, Img, Title, Description {
 // interface isLastRow used once in Table
 // interface SubTitle used once in Tale
 // interface textSize used once in IconButton
-// interface IconClassName used once in IconButton
 // interface textColor used once in IconButton
 // interface leading used once in IconButton
 // interface btnText used once in Button
+// interface containerClass used once in RegistrationFormCard

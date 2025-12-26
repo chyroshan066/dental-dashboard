@@ -1,4 +1,11 @@
-import { BackgroundColor, ClassName, Icon, Label, PaddingSize } from "@/types";
+import {
+  BackgroundColor,
+  ClassName,
+  Icon,
+  IconClass,
+  Label,
+  PaddingSize,
+} from "@/types";
 import { IconDefinition } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -6,10 +13,10 @@ interface IconButtonProps
   extends ClassName,
     Label,
     PaddingSize,
-    BackgroundColor {
+    BackgroundColor,
+    IconClass {
   icon?: IconDefinition;
   textSize?: "xs" | "sm";
-  iconClassName?: string;
   textColor?: string;
   leading?: string;
 }
@@ -20,7 +27,7 @@ export const IconButton = ({
   textSize = "xs",
   icon,
   label,
-  iconClassName,
+  iconClass,
   backgroundColor = "transparent",
   textColor = "text-slate-700",
   leading = "normal",
@@ -31,7 +38,7 @@ export const IconButton = ({
     {icon && (
       <FontAwesomeIcon
         icon={icon}
-        className={`mr-1 ${iconClassName} ${textColor}`}
+        className={`mr-1 ${iconClass} ${textColor}`}
       />
     )}{" "}
     {label}

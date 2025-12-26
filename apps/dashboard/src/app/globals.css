@@ -4224,3 +4224,7 @@
 .bg-gradient-soft-green600-lime400 {
   background-image: linear-gradient(to top left, #17ad37, #98ec2d);
 }
+
+.checked\:bg-gradient-soft-gray900-slate800:checked {
+  background-image: linear-gradient(to top left, #141727, #3a416f);
+}
