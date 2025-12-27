@@ -1,13 +1,7 @@
-import { Children, ClassName, Img, Name } from "@/types";
-import Image from "next/image";
+import { Children, ClassName } from "@/types";
 
 interface TDataProps extends Children, ClassName {
   isLastRow: boolean;
-}
-
-interface TableAvatarCellProps extends Name, Img {
-  subTitle?: string;
-  marginRight?: number;
 }
 
 interface CaptionProps extends Children, ClassName {}
@@ -29,29 +23,6 @@ export const TData = ({ children, className, isLastRow }: TDataProps) => (
   >
     {children}
   </td>
-);
-
-export const TableAvatarCell = ({
-  img,
-  name,
-  subTitle,
-  marginRight = 4,
-}: TableAvatarCellProps) => (
-  <div className="flex px-2 py-1">
-    <Image
-      src={img}
-      width={36}
-      height={36}
-      className={`inline-flex items-center justify-center mr-${marginRight} text-sm text-white transition-all duration-200 ease-soft-in-out h-9 w-9 rounded-xl`}
-      alt={name}
-    />
-    <div className="flex flex-col justify-center">
-      <h6 className="mb-0 text-sm leading-normal">{name}</h6>
-      {subTitle && (
-        <p className="mb-0 text-xs leading-tight text-slate-400">{subTitle}</p>
-      )}
-    </div>
-  </div>
 );
 
 export const Caption = ({ children, className }: CaptionProps) => (
