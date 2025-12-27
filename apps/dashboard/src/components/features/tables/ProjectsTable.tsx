@@ -5,7 +5,7 @@ import {
   TableAvatarCell,
   TData,
   THead,
-} from "@/components/utility/Table";
+} from "@/components/ui/table/Table";
 import { PROJECT_TABLE_HEADERS_2, PROJECTS_DATA_2 } from "@/lib/constants";
 import { faEllipsisV } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";

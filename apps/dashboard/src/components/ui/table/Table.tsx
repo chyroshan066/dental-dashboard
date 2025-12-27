@@ -21,10 +21,6 @@ export const Table = ({ children, className }: TableProps) => (
   </table>
 );
 
-export const THead = ({ children }: Children) => (
-  <thead className="align-bottom">{children}</thead>
-);
-
 export const TData = ({ children, className, isLastRow }: TDataProps) => (
   <td
     className={`p-2 align-middle bg-transparent ${

@@ -8,7 +8,7 @@ import {
   TableAvatarCell,
   TData,
   THead,
-} from "@/components/utility/Table";
+} from "@/components/ui/table/Table";
 import { useDisclosure } from "@/hooks/useDisclosure";
 import { PROJECT_TABLE_HEADERS, PROJECTS_DATA } from "@/lib/constants";
 import { faCheck, faEllipsisV } from "@fortawesome/free-solid-svg-icons";

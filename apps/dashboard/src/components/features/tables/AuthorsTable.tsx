@@ -5,7 +5,7 @@ import {
   TableAvatarCell,
   TData,
   THead,
-} from "@/components/utility/Table";
+} from "@/components/ui/table/Table";
 import { AUTHOR_TABLE_HEADER, AUTHORS_DATA } from "@/lib/constants";
 
 const statusStyles: { [key: string]: string } = {
